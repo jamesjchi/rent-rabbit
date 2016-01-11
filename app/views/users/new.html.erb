@@ -1,2 +1,10 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+
+<% bootstrap_form_for :user do |f| %>
+	<%= f.email_field :email %>
+	<%= f.text_field :first_name %>
+	<%= f.text_field :last_name %>
+	<%= f.password_field :password %>
+	<%= f.password_field :password_confirmation %>
+	<%= f.primary 'Signup' %>
+<% end %>

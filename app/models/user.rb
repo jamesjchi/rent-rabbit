@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name,
   			presence: true
 
-  validates_presence_of :password, on: :create
+  validates :password,
+  			presence: true,
+  			confirmation: true
 
   has_secure_password
 

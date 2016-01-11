@@ -3,6 +3,16 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.create(user_params)
+
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:success] = "User Created"
+      redirect_to root_path
+    else
+      flash[:danger] = "Invalid Credentials"
+      redirect_to new_user
+    end
   end
 
   def update
@@ -15,5 +25,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private 
+
+  def user_params 
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :date_created, :avg_rating, :bio)
   end
 end
