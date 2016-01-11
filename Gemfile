@@ -28,9 +28,13 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+# Use pry with <% binding pry %> inline the html to debug on rails
 gem 'pry'
 
 gem 'email_validator'
+
+# Use Cloudinary for file uploads
+gem 'cloudinary'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -50,4 +54,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
