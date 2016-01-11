@@ -30,7 +30,7 @@ gem 'bootstrap_form'
 
 gem 'pry'
 
-gem 'email_validator'
+gem 'email_validator', require: 'email_validator/strict'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
