@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :reviews
 
   validates :email, 
-  			presence: true,
-  			uniqueness: true
-  			
-  validates :my_email_attribute, email: true
+   			presence: true,
+   			uniqueness: true
+  
+  # can't get email validator functionality to work		
+  # validates :my_email_attribute, email: true
 
   validates :first_name, :last_name,
   			presence: true

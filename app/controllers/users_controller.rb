@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # Create new user if valid 
     @user = User.create(user_params)
 
     if @user.save
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Invalid Credentials"
-      redirect_to new_user
+      redirect_to signup_path
     end
   end
 
@@ -30,6 +31,6 @@ class UsersController < ApplicationController
   private 
 
   def user_params 
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :date_created, :avg_rating, :bio)
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
 end
