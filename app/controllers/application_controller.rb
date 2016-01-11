@@ -3,11 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def is_authenticated?
+  def is_main_authenticated?
   	unless current_user
   		flash[:danger] = "Credentials Invalid"
-  		redirect_to login_path
+  		#redirect_to root_path
   	end
+  end
+
+  def is_authenticated?
+    unless current_user
+      flash[:danger] = "Credentials Invalid"
+      redirect_to root_path
+    end
   end
 
   def current_user

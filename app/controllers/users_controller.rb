@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Invalid Credentials"
-      redirect_to signup_path
+      redirect_to root_path
     end
   end
 
