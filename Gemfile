@@ -35,6 +35,10 @@ gem 'email_validator'
 
 # Use Cloudinary for file uploads
 gem 'cloudinary'
+# Use OmniAuth for generic login
+gem 'omniauth'
+# Use OmniAuth for Facebook Login
+gem 'omniauth-facebook'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
