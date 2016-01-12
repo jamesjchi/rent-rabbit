@@ -1,0 +1,17 @@
+
+  <% @items.each do |t| %>
+  
+    <div class="well">
+      <strong>Title:</strong> <%= t.title %><br>
+      <strong>Description:</strong> <%= t.description %><br>
+      <strong>Price Per Day:</strong><span> $</span><%= t.price_day %><br>
+      <strong>Price Per Week:</strong><span> $</span><%= t.price_week %><br>
+      <strong>Start Date:</strong> <%= t.start_date %><br>
+      <strong>End Date:</strong> <%= t.end_date %><br>
+      <strong>Listed On:</strong> <%= t.created_at.strftime("%m/%d/%Y") %><br>
+      <%= link_to "Edit Item", item_path(t) %>
+    </div>
+
+  <% end %>
+
+  <%= link_to "Add Another Item", "/items/new" %>
