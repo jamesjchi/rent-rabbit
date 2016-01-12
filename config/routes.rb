@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   # User routes
   get 'signup'        => 'users#new'
+  
 
   # Sessions routes
   get 'login'         => 'sessions#new'
