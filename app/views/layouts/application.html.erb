@@ -11,8 +11,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <a class="navbar-brand brand" href="#">
+  <img alt="Brand" src="assets/Rent-Rabbit-Logo-words.svg">
+  </a>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Item list</a></li>
+        <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Items">
+        </div>
+        <button type="submit" class="btn btn-success nav-btn">Submit</button>
+      </form>
+    </ul>
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="#">Log in</a></li>
+      <li><a href="#">Sign up</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
 <%= yield %>
 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<%= javascript_include_tag 'skrollr.js' %>
+<%= javascript_include_tag '_main.js' %> 
 </body>
 </html>
