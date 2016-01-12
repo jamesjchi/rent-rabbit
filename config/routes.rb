@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   # Sessions routes
   get 'login'         => 'sessions#new'
-  post 'login'        => 'sessions#create' 
+  post 'login'        => 'sessions#create'
   get 'logout'        => 'sessions#destroy'
 
   resources :users do

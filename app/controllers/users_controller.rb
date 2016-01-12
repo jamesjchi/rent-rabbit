@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  # before_action :is_authenticated?
+
   def new
   end
 
@@ -17,13 +20,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find params[:id]
-    @user.update(user_params)
-    redirect_to show_users_path
   end
 
   def update
-
+    @user = User.find params[:id]
+    @user.update(user_params)
   end
 
   def show
@@ -39,5 +40,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :bio)
   end
-  
+
 end
