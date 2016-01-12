@@ -13,7 +13,7 @@
   </section>
   <section class="row">
     <div class="col-xs-3 well userWell">
-      <img src="http://i.imgur.com/AK0tVB2.jpg" class="profileImg">
+      <img src="<%= @user.image %>" class="profileImg">
       <div class="well"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
       <div class="well"><h2><%= @user.bio %></div>
       <div class="well">&#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</div>
@@ -32,9 +32,10 @@
               <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
-                <%= u.text_field :location, placeholder: "Enter Location", hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
+                <%= u.text_field :location, placeholder: "Enter Location", hide_label: true %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
+                <%= u.file_field :image %>
 
                 <%= u.primary "Update" %>
               <% end %>
