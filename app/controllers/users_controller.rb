@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
+
   before_action :is_authenticated?, except: [:new, :create]
- 
-=======
 
   # before_action :is_authenticated?
 
->>>>>>> master
   def new
   end
 
