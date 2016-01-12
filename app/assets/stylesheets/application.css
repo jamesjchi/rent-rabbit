@@ -118,13 +118,37 @@ hr{
     color:rgb(54,128,55);
     background-image:url('Seattle-bg.svg');
 }
-#slide-4 .bcg {
+#slide-4 .bcg4 {
 	background-image:url('Sign-up.svg');
-	height: 110%;
+	background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 80%;
+    height: 100%;
+    width: 100%;
 }
-#slide-3 .bcg {background-image:url('Pick-up.svg')}
-
-
+#slide-3 .bcg {
+	background-image:url('Pick-up.svg');
+}
+#slide-6 .bcg {
+	background-image:url('for-rent.svg');
+}
+#slide-5 {
+	position: relative;
+}
+#slide-5 .bcg5 {background-image:url('Get-paid.svg');
+	background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+    height: 100%;
+    width: 100%;
+}
+#slide-5 .bcg3 {
+    background: none; background-color: rgb(201,223,128);
+    position: fixed; bottom: 0; left: 0;
+    opacity: 0; z-index: 2
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
