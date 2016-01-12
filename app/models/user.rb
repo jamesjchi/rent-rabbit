@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
           too_short: " must be at least %{count} characters",
           too_long: " can have no more than %{count} characters"
         },
-
   			confirmation: true
         
   has_secure_password

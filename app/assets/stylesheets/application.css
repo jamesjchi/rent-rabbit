@@ -13,3 +13,71 @@
  *= require_tree .
  *= require_self
  */
+body {
+   background-color : rgb(62, 61, 57);
+ }
+.profileImg {
+  height: 100px;
+  width: 100px;
+  position : relative;
+  left: 25%;
+}
+.userItems {
+  padding : 5px;
+  margin: 20px;
+}
+.bikeIcon {
+  height : 200px;
+  widht : 100%;
+  padding : 5px;
+  margin : 5px;
+}
+.cssNav {
+  height : 100px;
+}
+#navbarLeft {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+#navbarRight{
+  position: relative;
+  top: -20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+#navLILeft {
+  float: left;
+  display: block;
+  padding: 8px;
+}
+#navLIRight {
+  float: right;
+  display: block;
+  padding: 8px;
+}
+.itemDescripDiv {
+  width : 100%;
+  position: relative;
+  top: -70px;
+  right : 33px;
+  margin : 40px;
+  background-color : rgb(27, 28, 31);
+  opacity : 0.5;
+}
+.itemDescripDiv h2 {
+  color : rgb(242, 235, 237);
+  font-size : 11px;
+}
+.userWell h1 {
+  font-size : 20px;
+}
+.userWell h2 {
+  font-size : 12px;
+}
+.modalBtn {
+  float : right;
+}

@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   # Sessions routes
   get 'login'         => 'sessions#new'
-  post 'login'        => 'sessions#create' 
+  post 'login'        => 'sessions#create'
   get 'logout'        => 'sessions#destroy'
 
   resources :users do
@@ -52,6 +52,8 @@ Rails.application.routes.draw do
 
   resources :items
   root 'main#index'
+
+  post '/users' => 'users#edit'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
