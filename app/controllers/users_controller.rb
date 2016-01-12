@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
     else
-      flash[:danger] = "Missing Password"
+      flash[:danger] = "Please Enter Password"
       redirect_to @user
     end
   end
