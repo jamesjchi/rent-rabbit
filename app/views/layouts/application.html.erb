@@ -36,8 +36,12 @@
       </form>
     </ul>
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="#">Log in</a></li>
-      <li><a href="#">Sign up</a></li>
+    <% if @current_user %>
+  Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
+      <% else %>
+      <li><a data-toggle="modal" href="#login">Log in</a></li>
+      <li><a data-toggle="modal" href="#signup">Sign Up</a></li>
+    <% end %>
     </ul>
   </div>
   </div>
@@ -45,21 +49,8 @@
 
 <%= render 'partials/flash' %>
 
-<% if @current_user %>
-	Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
-<% else %>
-	<a data-toggle="modal" href="#login">Login</a> | <a data-toggle="modal" href="#signup">Sign Up</a>
-<% end %>
-
 <%= yield %>
 
-<<<<<<< HEAD
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<%= javascript_include_tag 'skrollr.js' %>
-<%= javascript_include_tag '_main.js' %> 
-=======
 <!-- Login Modal -->
 <div class="modal fade" tabindex="-1" role="dialog" id="login">
 	<div class="modal-dialog" role="document">
@@ -91,8 +82,10 @@
 </div>
 
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
->>>>>>> 3897fd1c9e73b4c7ede635a0feefcca02476248e
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<%= javascript_include_tag 'skrollr.js' %>
+<%= javascript_include_tag '_main.js' %>
 </body>
 
 </html>
