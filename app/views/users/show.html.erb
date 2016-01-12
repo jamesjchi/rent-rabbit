@@ -14,7 +14,7 @@
   <section class="row">
     <div class="col-xs-3 well userWell">
       <img src="http://i.imgur.com/AK0tVB2.jpg" class="profileImg">
-      <div class="well"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.to_s[0..6] %></small></h1></div>
+      <div class="well"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.to_s[0..6] %><br>From <%=@user.location %></small></h1></div>
       <div class="well"><h2><%= @user.bio %></div>
       <div class="well">&#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</div>
 
@@ -29,7 +29,7 @@
               <h4 class="modal-title" id="profileModalLabel">Edit User Information</h4>
             </div>
             <div class="modal-body">
-              <%= bootstrap_form_for :user, url: { :action => "update", :controller => "users"}, :method => "get" do |u| %>
+              <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
                 <%= u.text_field :first_name %>
                 <%= u.text_field :last_name %>
                 <%= u.text_field :location %>
@@ -51,7 +51,7 @@
         <% @item.each do |i| %>
           <div class="col-xs-5 userItems">
             <img src="<%= i.image %>" class="bikeIcon">
-            <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/per week | <%= i.title %><br><%= i.description %></h2></div>
+            <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2></div>
             <!-- <img src="http://i.imgur.com/wQpipel.png" class="bikeIcon">
             <div class="itemDescripDiv"><h2>$50 | Nintendo Wii | Games and 3 Controllers</h2></div> -->
           </div>

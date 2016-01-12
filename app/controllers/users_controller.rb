@@ -20,11 +20,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find params[:id]
+    @user.update_attributes(update_user_params)
+    redirect_to @user
   end
 
   def update
-    @user = User.find params[:id]
-    @user.update(user_params)
   end
 
   def show
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :bio)
+  end
+
+  def update_user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :location, :bio)
   end
 
 end

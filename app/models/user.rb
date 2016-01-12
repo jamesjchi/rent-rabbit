@@ -2,19 +2,19 @@ class User < ActiveRecord::Base
   has_many :item
   has_and_belongs_to_many :reviews
 
-  validates :email, 
+  validates :email,
    			presence: true,
    			uniqueness: true
-  
-  # can't get email validator functionality to work		
+
+  # can't get email validator functionality to work
   # validates :my_email_attribute, email: true
 
   validates :first_name, :last_name,
   			presence: true
 
-  validates :password,
-  			presence: true,
-  			confirmation: true
+  # validates :password,
+  # 			presence: true,
+  # 			confirmation: true
 
   has_secure_password
 
