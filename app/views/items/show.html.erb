@@ -1,2 +1,17 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+  <h1>Update Item</h1>
+  <%= bootstrap_form_for @item do |t| %>
+    <%= t.text_field :title %>
+    <%= t.text_area :description %>
+    <%= t.text_field :price_day %>
+    <%= t.text_field :price_week %>
+    <%= t.text_field :start_date %>
+    <%= t.text_field :end_date %>
+
+    <%= t.primary "Update", :class => 'btn btn-primary', :data => {:confirm => 'Are you sure?'} %>
+    <span>
+    <%= link_to "Delete", @item, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete %></span>
+  <% end %>
+  
+  
+</div>

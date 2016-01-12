@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <title>RentRabbit</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -40,12 +43,56 @@
   </div>
 </nav>
 
+<%= render 'partials/flash' %>
+
+<% if @current_user %>
+	Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
+<% else %>
+	<a data-toggle="modal" href="#login">Login</a> | <a data-toggle="modal" href="#signup">Sign Up</a>
+<% end %>
+
 <%= yield %>
 
+<<<<<<< HEAD
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <%= javascript_include_tag 'skrollr.js' %>
 <%= javascript_include_tag '_main.js' %> 
+=======
+<!-- Login Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="login">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Login</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'sessions/form' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="signup">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Sign Up</h4>
+			</div>
+			<div class="modal-body">
+				<%= render 'users/form' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+>>>>>>> 3897fd1c9e73b4c7ede635a0feefcca02476248e
 </body>
+
 </html>

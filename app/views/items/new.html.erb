@@ -1,2 +1,16 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1>Add Item</h1>
+
+<div class="container">
+  <h3>Instructions</h3>
+  <p>Note: Please input at least a price per day or a price per week</p>
+  <%= bootstrap_form_for @item do |t| %>
+    <%= t.text_field :title, placeholder: "Title", hide_label: true %>
+    <%= t.text_area :description, placeholder: "Description", hide_label: true %>
+    <%= t.text_field :price_day, placeholder: "Price per day", hide_label: true %>
+    <%= t.text_field :price_week, placeholder: "Price per week", hide_label: true %>
+    <%= t.text_field :start_date, placeholder: "Start Date", hide_label: true %>
+    <%= t.text_field :end_date, placeholder: "End Date", hide_label: true %>
+    <%= t.file_field :image %>
+    <%= t.primary %>
+  <% end %>
+</div>
