@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "User Created"
       redirect_to root_path
+    elsif !EmailValidator.valid?(@user.email)
+       flash[:danger] = "The email you entered is invalid"
     else
       flash[:danger] = "Invalid Credentials"
       redirect_to root_path
@@ -33,6 +35,6 @@ class UsersController < ApplicationController
   private 
 
   def user_params 
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
