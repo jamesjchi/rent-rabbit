@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :item
+  has_many :item, dependent: :destroy
   has_and_belongs_to_many :reviews
 
   validates :email,
