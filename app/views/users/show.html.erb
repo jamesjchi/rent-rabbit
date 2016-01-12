@@ -1,13 +1,3 @@
-<div class="well cssNav">
-  <ul id="navbarLeft">
-    <li id="navLILeft"><a href="#"><strong>Rent-Rabbit</strong></a></li>
-    <li id="navLILeft"><input type='text' placeholder="Item Search"></input></li>
-    <ul id="navbarRight">
-      <li id="navLIRight">Dashboard</li>
-      <li id="navLIRight">User Profile</li>
-    </ul>
-  </ul>
-</div>
 <div class="container userContainer">
   <section class="row">
   </section>
@@ -18,9 +8,9 @@
       <div class="well"><h2><%= @user.bio %></div>
       <div class="well">&#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</div>
 
-      <!-- if @user.id == @current_user.id  -->
+      <% if @current_user.id === @user.id %>
       <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
-
+      <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -30,6 +20,8 @@
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
+                <%= u.password_field :password %>
+                <!-- <%= u.password_field :password_confirmation %> -->
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
@@ -58,7 +50,11 @@
       </section>
       <section class="row">
         <div class="col-xs-10">
-          <h1>Reviews <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#reviewModal">Review User</button></h1>
+          <h1>Reviews
+            <% if @current_user.id != @user.id %>
+              <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#reviewModal">Review User</button>
+            <% end %>
+          </h1>
 
           <div class="modal fade" id="reviewModal" tableindex="-1" rolde="dialog" aria-labelledby="reviewModalLabel">
             <div class="modal-dialog" role="document">
