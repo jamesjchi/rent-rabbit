@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   		redirect_to root_path
   	# If not send back to login
   	else
-  		flash[:danger] = "Invalid Credentials. Try Again"
+  		flash[:danger] = "Invalid User Login"
   		redirect_to root_path
   	end
   end

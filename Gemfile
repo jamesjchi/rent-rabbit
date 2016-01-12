@@ -32,6 +32,7 @@ gem 'pry'
 
 gem 'email_validator'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,8 +1,8 @@
 <%= bootstrap_form_for :user, url: 'users' do |f| %>
-	<%= f.email_field :email %>
-	<%= f.text_field :first_name %>
-	<%= f.text_field :last_name %>
-	<%= f.password_field :password %>
-	<%= f.password_field :password_confirmation %>
+	<%= f.email_field :email, placeholder: "Email", hide_label: true %>
+	<%= f.text_field :first_name, placeholder: "First Name", hide_label: true %>
+	<%= f.text_field :last_name, placeholder: "Last Name", hide_label: true %>
+	<%= f.password_field :password, placeholder: "Between 5 and 20 characters", hide_label: true %>
+	<%= f.password_field :password_confirmation, placeholder: "Confirm password", hide_label: true %>
 	<%= f.primary 'Signup' %>
 <% end %>

@@ -8,14 +8,18 @@ class UsersController < ApplicationController
     # Create new user if valid 
     @user = User.create(user_params)
 
+    puts @user.errors.inspect
+
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "User Created"
       redirect_to root_path
     elsif !EmailValidator.valid?(@user.email)
        flash[:danger] = "The email you entered is invalid"
+       redirect_to root_path
     else
-      flash[:danger] = "Invalid Credentials"
+      messages = @user.errors.map { |k, v| "#{k} #{v}" }
+      flash[:danger] = messages.join(', ').gsub(/_/, ' ')
       redirect_to root_path
     end
   end

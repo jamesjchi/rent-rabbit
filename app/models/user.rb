@@ -12,8 +12,15 @@ class User < ActiveRecord::Base
 
   validates :password,
   			presence: true,
-  			confirmation: true
+        length: {
+          minimum: 5, 
+          maximum: 20,
+          too_short: " must be at least %{count} characters",
+          too_long: " can have no more than %{count} characters"
+        },
 
+  			confirmation: true
+        
   has_secure_password
 
   def self.authenticate email, password
