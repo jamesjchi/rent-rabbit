@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  # before_action :is_authenticated?
+  before_action :is_authenticated?
   
   def index
     @items = Item.all
@@ -47,6 +47,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price_day, :price_week, :start_date, :end_date)
+    params.require(:item).permit(:title, :description, :price_day, :price_week, :start_date, :end_date, :rented)
   end
 end

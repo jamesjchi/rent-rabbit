@@ -7,13 +7,11 @@
     <%= t.text_field :price_week %>
     <%= t.text_field :start_date %>
     <%= t.text_field :end_date %>
+    <%= t.select :rented, [["No"], ["Yes"]], { class: "selectpicker" }, :label => "Rented?" %>
 
     <%= t.primary "Update", :class => 'btn btn-primary', :data => {:confirm => 'Are you sure?'} %>
     <span>
     <%= link_to "Delete", @item, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete %>
-    </span>
-    <span>
-    <%= link_to "Rented?", :class => 'btn btn-primary' %>
     </span>
   <% end %>
   

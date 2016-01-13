@@ -14,6 +14,7 @@
 
       <% if @current_user.id === @user.id %>
       <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+      <span><%= link_to "List Item", new_item_path, class: "btn btn-success btn-sm modalBtn" %></span>
       <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
@@ -55,7 +56,7 @@
             <img src="<%= i.image %>" class="bikeIcon">
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <%= link_to "Contact About Renting" %>
+              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %>
             </div>
           </div>
         <% end %>
@@ -66,18 +67,18 @@
     <div class="col-xs-2">
     </div>
     <div class="col-xs-8 reviewDiv">
-      <div class="well wellWell"><h1>Reviews
+      <div class="well wellWell"><h1>Reviews</h1>
         <% if @current_user.id != @user.id %>
           <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#reviewModal">Review User</button>
         <% end %>
-      </h1></div>
+      </div>
 
       <div class="modal fade" id="reviewModal" tableindex="-1" rolde="dialog" aria-labelledby="reviewModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %>.</h4>
+              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %></h4>
             </div>
             <div class="modal-body">
 

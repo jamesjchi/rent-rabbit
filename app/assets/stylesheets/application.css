@@ -228,6 +228,11 @@ h2{
 }
 .item-main {
   margin-top: 150px;
+  border: 3px solid black;
+  height: 80%;
+  width: 100%;
+  overflow: scroll;
+  background-color: rgb(145, 145, 147);
 }
 .item-new {
   margin-top: 150px;
@@ -235,6 +240,7 @@ h2{
 .item-update {
   margin-top: 150px;
 }
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
