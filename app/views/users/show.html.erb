@@ -22,7 +22,10 @@
       <hr>
 
       <% if @current_user.id === @user.id %>
+
       <button type="button" class="btn btn-success btn-sm updateModalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+      <span><%= link_to "List Item", new_item_path, class: "btn btn-success btn-sm modalBtn" %></span>
+
       <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
@@ -32,13 +35,23 @@
               <h4 class="modal-title" id="profileModalLabel"><strong>Edit User Information</strong></h4>
             </div>
             <div class="modal-body">
+
               <%= bootstrap_form_for @user, url: { :action => "update", :controller => "users"}, :method => "put" do |u| %>
+                <%= u.password_field :password, placeholder: "Enter your password to update profile" %>
+                <% if @user.provider %>
+                  <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
+                <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
-                <%= u.text_field :location, placeholder: "Enter Location", hide_label: true %>
+                <%= u.select :location,
+                  [
+                    ["Seattle"], ["Bellevue"], ["Green Lake"], ["Bothell"], ["West Seattle"], ["Northgate"], ["Ballard"]
+
+                ], { label: "Choose your neighborhood" }, { class: "selectpicker" }
+                  %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
-                <%= u.file_field :image, :value => @user.image %>
+                <%= u.file_field :image %>
                 <%= u.primary "Update" %>
               <% end %>
             </div>
@@ -49,31 +62,38 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-9 userItems">
-      <% @item.each do |i| %>
-        <div class="col-xs-4 eachItem">
-          <img src="<%= i.image %>" class="bikeIcon">
-          <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2></div>
-        </div>
-      <% end %>
+
+    <div class="col-xs-10 col-md-9 userItems">
+      <section class="row">
+        <% @item.each do |i| %>
+          <div class="col-xs-5 userItems">
+            <img src="<%= i.image %>" class="bikeIcon">
+            <div class="itemDescripDiv">
+              <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
+              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %>
+            </div>
+          </div>
+        <% end %>
+      </section>
+
     </div>
   </section>
   <section class="row text-center">
     <div class="col-xs-2">
     </div>
     <div class="col-xs-8 reviewDiv">
-      <div class="well wellWell"><h1>Reviews
+      <div class="well wellWell"><h1>Reviews</h1>
         <% if @current_user.id != @user.id %>
           <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#reviewModal">Review User</button>
         <% end %>
-      </h1></div>
+      </div>
 
       <div class="modal fade" id="reviewModal" tableindex="-1" rolde="dialog" aria-labelledby="reviewModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %>.</h4>
+              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %></h4>
             </div>
             <div class="modal-body">
               <%= render 'reviews/form' %>
