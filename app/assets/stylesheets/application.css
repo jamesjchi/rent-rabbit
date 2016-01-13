@@ -218,6 +218,7 @@ h2{
 .reviewDiv {
   border : 2px solid black;
   border-radius : 15px;
+  overflow: scroll;
 }
 .wellWell {
   width : 100%;
@@ -226,7 +227,13 @@ h2{
   margin : 5px 0 10px 0;
 }
 .item-main {
-  margin-top: 100px;
+  margin-top: 150px;
+}
+.item-new {
+  margin-top: 150px;
+}
+.item-update {
+  margin-top: 150px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

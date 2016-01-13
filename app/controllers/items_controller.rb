@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :is_authenticated?
+  # before_action :is_authenticated?
   
   def index
     @items = Item.all

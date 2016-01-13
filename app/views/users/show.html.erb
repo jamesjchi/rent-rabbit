@@ -24,14 +24,19 @@
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
-                <%= u.password_field :password %>
-                <!-- <%= u.password_field :password_confirmation %> -->
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
-                <%= u.text_field :location, placeholder: "Enter Location", hide_label: true %>
+                <%= u.select :location,
+                  [
+                    ["Seattle"], ["Bellevue"], ["Green Lake"], ["Bothell"], ["West Seattle"], ["Northgate"], ["Ballard"]
+                    
+                ], { label: "Choose your neighborhood" }, { class: "selectpicker" }
+                  %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
                 <%= u.file_field :image %>
+                <%= u.password_field :password, help: "Please input your password to confirm changes" %>
+                <!-- <%= u.password_field :password_confirmation %> -->
 
                 <%= u.primary "Update" %>
               <% end %>
@@ -48,7 +53,10 @@
         <% @item.each do |i| %>
           <div class="col-xs-5 userItems">
             <img src="<%= i.image %>" class="bikeIcon">
-            <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2></div>
+            <div class="itemDescripDiv">
+              <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
+              <%= link_to "Contact About Renting" %>
+            </div>
           </div>
         <% end %>
       </section>
