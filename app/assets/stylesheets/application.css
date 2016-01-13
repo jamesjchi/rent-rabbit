@@ -144,87 +144,107 @@ h2{
 	font-size: 40px;
 	color:rgb(54,128,55);
 }
+.modal-body {
+  text-align : center;
+}
 .userContainer {
-  height : 100%;
-  width : 100%;
+  height           : 100%;
+  width            : 100%;
   background-color : rgb(90, 92, 91);
-  padding : 75px;
-  position: relative;
+  padding          : 75px;
+  position         : relative;
+}
+.updateModalBtn {
+  position : relative;
+  left     : 35%;
 }
 .profileImg {
-  height: 150px;
-  width: 150px;
-  border : transparent !important;
+  height   : 150px;
+  width    : 150px;
+  border   : transparent !important;
   position : relative;
-  left : 25%;
-}
-.userItems {
-  padding : 5px;
-  margin: 30px;
+  left     : 25%;
 }
 .bikeIcon {
-  height : 200px;
-  width : 100%;
-  padding : 5px;
-  margin : 5px;
+  height  : 200px;
+  width   : 100%;
+}
+.userItems {
+  position : relative;
+  top      : 30px;
+}
+.eachItem {
+  margin  : -15px;
+  padding : -10px;
 }
 .itemDescripDiv {
-  width : 100%;
-  position: relative;
-  top: -70px;
-  right : 33px;
-  margin : 40px;
+  width            : 95%;
+  font-family      : 'Lobster Two', cursive;
+  position         : relative;
+  top              : -75px;
+  left             : 7px;
   background-color : rgb(27, 28, 31);
-  opacity : 0.5;
+  opacity          : 0.5;
 }
 .itemDescripDiv h2 {
-  color : rgb(242, 235, 237);
-  font-size : 11px;
+  color       : rgb(242, 235, 237);
+  font-family : 'Lobster Two', cursive;
+  font-size   : 11px;
 }
 .userWell {
-  border-radius : 15px;
-  border : 2px solid black;
+  border-radius    : 15px;
+  border           : 2px solid black;
   background-color : rgb(145, 145, 147);
-  margin-top : 35px;
+  margin-top       : 35px;
+  font-family      : 'Fredoka One', cursive;
 }
 .userWell h1 {
   font-size : 20px;
 }
 .userWell h2 {
-  font-size : 12px;
+  font-size : 20px;
 }
 .about {
   height : 100px;
   margin : 5px;
-  width : 100%;
+  width  : 100%;
 }
 .bio {
   height : 100%;
   margin : 5px;
-  width : 100%;
+  width  : 100%;
 }
 .rating {
   height : 50px;
   margin : 5px;
-  width : 100%;
+  width  : 100%;
 }
 .rating h2 {
-  position: relative;
-  top : 10px;
-  left : 5px;
-  color : rgb(240, 174, 47);
+  position  : relative;
+  top       : 10px;
+  left      : 5px;
+  color     : rgb(240, 174, 47);
   font-size : 22px;
 }
 .reviewDiv {
-  border : 2px solid black;
+  border        : 2px solid black;
   border-radius : 15px;
   overflow: scroll;
+  font-family   : 'Black Ops One', cursive;
+
 }
 .wellWell {
-  width : 100%;
+  width            : 100%;
   background-color : rgb(145, 145, 147);
-  border : transparent !important;
-  margin : 5px 0 10px 0;
+  border           : transparent !important;
+  margin           : 5px 0 10px 0;
+}
+#profileModalLabel {
+  text-align : center;
+
+}
+#profileModal {
+  font-family : 'Russo One', sans-serif;
 }
 .item-main {
   margin-top: 150px;

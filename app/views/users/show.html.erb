@@ -2,7 +2,7 @@
   <section class="row">
   </section>
   <section class="row">
-    <div class="col-xs-10 col-md-3 well userWell">
+    <div class="col-xs-3 well userWell">
       <img src="<%= @user.image %>" class="profileImg">
       <hr>
       <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
@@ -13,18 +13,28 @@
       <hr>
 
       <% if @current_user.id === @user.id %>
+
       <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
       <span><%= link_to "List Item", new_item_path, class: "btn btn-success btn-sm modalBtn" %></span>
+
+      <button type="button" class="btn btn-success btn-sm updateModalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+
       <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="profileModalLabel">Edit User Information</h4>
+              <h4 class="modal-title" id="profileModalLabel"><strong>Edit User Information</strong></h4>
             </div>
             <div class="modal-body">
-              <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
+
+              <%= bootstrap_form_for @user, url: { :action => "update", :controller => "users"}, :method => "put" do |u| %>
+                <%= u.password_field :password, placeholder: "Enter your password to update profile" %>
+                <% if @user.provider %>
+                  <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
+                <% end %>
+
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
@@ -36,8 +46,6 @@
                   %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
                 <%= u.file_field :image %>
-                <%= u.password_field :password, help: "Please input your password to confirm changes" %>
-                <!-- <%= u.password_field :password_confirmation %> -->
 
                 <%= u.primary "Update" %>
               <% end %>
@@ -49,6 +57,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-xs-10 col-md-9 userItems">
       <section class="row">
         <% @item.each do |i| %>
@@ -61,6 +70,7 @@
           </div>
         <% end %>
       </section>
+
     </div>
   </section>
   <section class="row text-center">
