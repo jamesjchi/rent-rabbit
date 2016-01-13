@@ -57,8 +57,6 @@ Rails.application.routes.draw do
   resources :items
   root 'main#index'
 
-  post '/users' => 'users#edit'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

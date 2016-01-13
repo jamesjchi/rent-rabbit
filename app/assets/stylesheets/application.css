@@ -168,20 +168,21 @@ h2{
 .bikeIcon {
   height  : 200px;
   width   : 100%;
-  padding : 5px;
-  margin  : 5px;
 }
 .userItems {
   position : relative;
   top      : 30px;
 }
+.eachItem {
+  margin  : -15px;
+  padding : -10px;
+}
 .itemDescripDiv {
-  width            : 100%;
+  width            : 95%;
   font-family      : 'Lobster Two', cursive;
   position         : relative;
-  top              : -50px;
-  right            : 33px;
-  margin           : 40px;
+  top              : -75px;
+  left             : 7px;
   background-color : rgb(27, 28, 31);
   opacity          : 0.5;
 }
