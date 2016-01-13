@@ -13,20 +13,20 @@
       <hr>
 
       <% if @current_user.id === @user.id %>
-      <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+      <button type="button" class="btn btn-success btn-sm updateModalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
       <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="profileModalLabel">Edit User Information</h4>
+              <h4 class="modal-title" id="profileModalLabel"><strong>Edit User Information</strong></h4>
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
                 <%= u.password_field :password %>
                 <% if @user.provider %>
-                  <h5>Password for update is <%= @user.provider %></h5>
+                  <h5>Password for update is <u><%= @user.provider %></u></h5>
                 <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
@@ -48,7 +48,7 @@
     <div class="col-xs-8 userItems">
       <section class="row">
         <% @item.each do |i| %>
-          <div class="col-xs-3 userItems">
+          <div class="col-xs-3">
             <img src="<%= i.image %>" class="bikeIcon">
             <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2></div>
           </div>
