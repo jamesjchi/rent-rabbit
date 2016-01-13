@@ -2,7 +2,7 @@
   <section class="row">
   </section>
   <section class="row">
-    <div class="col-xs-10 col-md-3 well userWell">
+    <div class="col-xs-3 well userWell">
       <img src="<%= @user.image %>" class="profileImg">
       <hr>
       <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
@@ -43,10 +43,10 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-10 col-md-9 userItems">
+    <div class="col-xs-8 userItems">
       <section class="row">
         <% @item.each do |i| %>
-          <div class="col-xs-5 userItems">
+          <div class="col-xs-3 userItems">
             <img src="<%= i.image %>" class="bikeIcon">
             <div class="itemDescripDiv"><h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2></div>
           </div>
