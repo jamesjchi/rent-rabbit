@@ -27,8 +27,8 @@
  margin-left: 60px;
  margin-right: 30px;
 }
-ul.nav a:hover { 
-	color: green !important; 
+ul.nav a:hover {
+	color: green !important;
 }
 .navbar-form{
 	line-height: 65px;
@@ -148,6 +148,88 @@ hr{
     background: none; background-color: rgb(201,223,128);
     position: fixed; bottom: 0; left: 0;
     opacity: 0; z-index: 2
+}
+
+.userContainer {
+  height : 100%;
+  width : 100%;
+  background-color : rgb(90, 92, 91);
+  padding : 75px;
+  position: relative;
+}
+.profileImg {
+  height: 150px;
+  width: 150px;
+  border : transparent !important;
+  position : relative;
+  left : 25%;
+}
+.userItems {
+  padding : 5px;
+  margin: 30px;
+}
+.bikeIcon {
+  height : 200px;
+  width : 100%;
+  padding : 5px;
+  margin : 5px;
+}
+.itemDescripDiv {
+  width : 100%;
+  position: relative;
+  top: -70px;
+  right : 33px;
+  margin : 40px;
+  background-color : rgb(27, 28, 31);
+  opacity : 0.5;
+}
+.itemDescripDiv h2 {
+  color : rgb(242, 235, 237);
+  font-size : 11px;
+}
+.userWell {
+  border-radius : 15px;
+  border : 2px solid black;
+  background-color : rgb(145, 145, 147);
+  margin-top : 35px;
+}
+.userWell h1 {
+  font-size : 20px;
+}
+.userWell h2 {
+  font-size : 12px;
+}
+.about {
+  height : 100px;
+  margin : 5px;
+  width : 100%;
+}
+.bio {
+  height : 100%;
+  margin : 5px;
+  width : 100%;
+}
+.rating {
+  height : 50px;
+  margin : 5px;
+  width : 100%;
+}
+.rating h2 {
+  position: relative;
+  top : 10px;
+  left : 5px;
+  color : rgb(240, 174, 47);
+  font-size : 22px;
+}
+.reviewDiv {
+  border : 2px solid black;
+  border-radius : 15px;
+}
+.wellWell {
+  width : 100%;
+  background-color : rgb(145, 145, 147);
+  border : transparent !important;
+  margin : 5px 0 10px 0;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
