@@ -8,7 +8,6 @@ class CreateItems < ActiveRecord::Migration
       t.float :price_week
       t.string :start_date
       t.string :end_date
-      t.date :date_created
       t.boolean :rented
       t.references :user, index: true, foreign_key: true
 

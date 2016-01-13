@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :is_authenticated?
+  before_action :is_authenticated?
 
   def new
   end
@@ -21,8 +21,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+    # uploaded = params[:user][:image]
+    # cloud_file = Cloudinary::Uploader.upload(uploaded)
+    # if (File.exists?(uploaded))
+    #   File.delete(uploaded)
+    # end
+    # userUpload = @user.update({:image => cloud_file["public_id"]})
+    # userUpload.save
     @user.update_attributes(update_user_params)
-    redirect_to @user
+    if @user.save
+      redirect_to @user
+    else
+      flash[:danger] = "Please Enter Password"
+      redirect_to @user
+    end
   end
 
   def update
@@ -39,11 +51,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :bio)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
   def update_user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :location, :bio)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :image, :location, :bio)
   end
 
 end

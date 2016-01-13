@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :item
+  has_many :item, dependent: :destroy
   has_and_belongs_to_many :reviews
 
   validates :email,
@@ -12,9 +12,10 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name,
   			presence: true
 
-  # validates :password,
-  # 			presence: true,
-  # 			confirmation: true
+  validates :password,
+  			presence: true,
+  			confirmation: true
+        # on: :create
 
   has_secure_password
 
