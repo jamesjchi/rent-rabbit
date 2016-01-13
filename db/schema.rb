@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20160112232851) do
     t.integer  "price_week"
     t.string   "start_date"
     t.string   "end_date"
+    t.date     "date_created"
     t.boolean  "rented"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
@@ -35,8 +36,9 @@ ActiveRecord::Schema.define(version: 20160112232851) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "review"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.date     "date_created"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "reviewer_id"
   end
 
