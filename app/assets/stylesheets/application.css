@@ -144,6 +144,9 @@ h2{
 	font-size: 40px;
 	color:rgb(54,128,55);
 }
+.modal-body {
+  text-align : center;
+}
 .userContainer {
   height           : 100%;
   width            : 100%;

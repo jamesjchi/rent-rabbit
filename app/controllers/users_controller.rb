@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
-    # uploaded = params[:user][:image]
+    # uploaded = params[:user][:image].path
     # cloud_file = Cloudinary::Uploader.upload(uploaded)
     # if (File.exists?(uploaded))
     #   File.delete(uploaded)

@@ -2,8 +2,6 @@ class AuthController < ApplicationController
 
   def callback
     provider_user = request.env['omniauth.auth']
-    puts "hello"
-    puts provider_user
 
     @user = User.find_or_create_by(pid: provider_user['uid'], provider: params[:provider]) do |u|
       u.token = provider_user['credentials']['token']
@@ -23,7 +21,7 @@ class AuthController < ApplicationController
   end
 
   def failure
-    render plain: 'failure'
+    render plain: 'Failed to log in through facebook'
   end
 
 end
