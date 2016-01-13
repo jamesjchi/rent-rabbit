@@ -1,0 +1,6 @@
+<%= bootstrap_form_tag url: "/users/#{@user.id}/reviews" do |rev| %>
+	<%= rev.text_field :rating, placeholder: "Rate from 1 to 5" %>
+	<%= rev.text_area :review %>
+
+	<%= rev.primary 'Review' %>
+<% end %>

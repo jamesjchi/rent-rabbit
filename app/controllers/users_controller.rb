@@ -27,21 +27,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.find params[:id]
-    # uploaded = params[:user][:image].path
-    # cloud_file = Cloudinary::Uploader.upload(uploaded)
-    # if (File.exists?(uploaded))
-    #   File.delete(uploaded)
-    # end
-    # userUpload = @user.update({:image => cloud_file["public_id"]})
-    # userUpload.save
-    # @user.update_attributes(update_user_params)
-    # if @user.save
-    #   redirect_to @user
-    # else
-    #   flash[:danger] = "Please Enter Password"
-    #   redirect_to @user
-    # end
   end
 
   def update
@@ -52,6 +37,9 @@ class UsersController < ApplicationController
     if params[:user][:image]
       uploaded_image = params[:user][:image].path
       cloud_file = Cloudinary::Uploader.upload(uploaded_image)
+      if (File.exists?(uploaded_image))
+        File.delete(uploaded_image)
+      end
       user.update({:image => cloud_file["public_id"]})
     end
 
@@ -61,10 +49,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @item = @user.item
-    @review = Review.all
-    puts "hello"
-    puts @review
-    puts "goodbye"
+    @reviews = Review.all
   end
 
   def destroy
