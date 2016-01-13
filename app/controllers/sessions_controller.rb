@@ -9,16 +9,18 @@ class SessionsController < ApplicationController
   	# If valid create new session with @user.id
   	if @user 
   		session[:user_id] = @user.id
+      flash[:success] = "Welcome Back " + @user.first_name
   		redirect_to root_path
   	# If not send back to login
   	else
-  		flash[:danger] = "Invalid Credentials. Try Again"
+  		flash[:danger] = "Invalid User Login"
   		redirect_to root_path
   	end
   end
   # Logout end session
   def destroy
   	session[:user_id] = nil
+    flash[:success] = 'You Have Been Logged Out'
   	redirect_to root_path
   end
 
