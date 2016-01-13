@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :item
+  has_many :item, dependent: :destroy
   has_and_belongs_to_many :reviews
 
   validates :email, 
@@ -18,8 +18,10 @@ class User < ActiveRecord::Base
           too_short: " must be at least %{count} characters",
           too_long: " can have no more than %{count} characters"
         },
+  			
   			confirmation: true
-        
+        # on: :create
+
   has_secure_password
 
   def self.authenticate email, password

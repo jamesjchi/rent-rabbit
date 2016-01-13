@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108222453) do
+ActiveRecord::Schema.define(version: 20160112232851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,14 @@ ActiveRecord::Schema.define(version: 20160108222453) do
     t.string   "title"
     t.text     "description"
     t.string   "image"
-    t.float    "price_day"
-    t.float    "price_week"
+    t.integer  "price_day"
+    t.integer  "price_week"
     t.string   "start_date"
     t.string   "end_date"
-    t.date     "date_created"
     t.boolean  "rented"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
@@ -36,9 +35,9 @@ ActiveRecord::Schema.define(version: 20160108222453) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "review"
-    t.date     "date_created"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "reviewer_id"
   end
 
   create_table "reviews_users", force: :cascade do |t|
@@ -63,6 +62,9 @@ ActiveRecord::Schema.define(version: 20160108222453) do
     t.text     "bio"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "pid"
+    t.string   "provider"
+    t.string   "token"
   end
 
   add_foreign_key "items", "users"
