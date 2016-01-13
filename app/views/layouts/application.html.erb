@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery.js"></script>
@@ -37,17 +38,18 @@
     </ul>
     <ul class="nav navbar-nav navbar-left">
     <% if @current_user %>
-      Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
-    <% else %>
+ <li><%= link_to @current_user.first_name + "'s profile", "/users/" + @current_user.id.to_s %></li> <li><%= link_to "Logout", logout_path %></li>
+      <% else %>
       <li><a data-toggle="modal" href="#login">Log in</a></li>
       <li><a data-toggle="modal" href="#signup">Sign Up</a></li>
     <% end %>
     </ul>
   </div>
   </div>
+  <%= render 'partials/flash' %>
 </nav>
 
-<%= render 'partials/flash' %>
+
 
 <%= yield %>
 
