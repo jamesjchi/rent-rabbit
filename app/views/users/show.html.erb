@@ -14,10 +14,8 @@
 
       <% if @current_user.id === @user.id %>
 
-      <button type="button" class="btn btn-success btn-sm modalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
-      <span><%= link_to "List Item", new_item_path, class: "btn btn-success btn-sm modalBtn" %></span>
-
       <button type="button" class="btn btn-success btn-sm updateModalBtn" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+      <span><%= link_to "List Item", new_item_path, class: "btn btn-success btn-sm modalBtn" %></span>
 
       <% end %>
       <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
