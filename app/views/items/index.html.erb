@@ -1,5 +1,5 @@
 <% if @items.present? %>
-  <% @items.each do |t| %>
+  
   <div class="container item-container">
 
     <div class="container item-main">
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-<% end %>
+
 
 <% else %>
   <p>There are currently no items for rent that match "<%= params[:search] %>".</p>
