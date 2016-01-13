@@ -15,7 +15,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
+<div class="container-fluid">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
@@ -23,25 +23,27 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-  <a class="navbar-brand brand hidden-xs" href="/">
+  <div class="col-md-2 col-md-offset-5">
+  <a class="navbar-brand brand hidden-xs hidden-sm" href="/">
   <img alt="Brand" src="/assets/Rent-Rabbit-Logo-words.svg">
   </a>
+  </div>
   <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="/items">Item list</a></li>
-        <form class="navbar-form navbar-right" role="search">
+    <ul class="nav navbar-nav navbar-right col-sm-6 col-md-5">
+        <li class="col-md-4 hidden-sm"><a href="/items">For rent</a></li>
+        <form class="navbar-form navbar-right col-sm-12 col-md-8 hidden-xs" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search Items">
         </div>
         <button type="submit" class="btn btn-success nav-btn">Submit</button>
       </form>
     </ul>
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-left col-sm-6 col-md-5">
     <% if @current_user %>
- <li><%= link_to @current_user.first_name + "'s profile", "/users/" + @current_user.id.to_s %></li> <li><%= link_to "Logout", logout_path %></li>
+ <li class="col-sm-6 col-md-6"><%= link_to @current_user.first_name + "'s profile", "/users/" + @current_user.id.to_s %></li> <li class="col-sm-6 col-md-6"><%= link_to "Logout", logout_path %></li>
       <% else %>
-      <li><a data-toggle="modal" href="#login">Log in</a></li>
-      <li><a data-toggle="modal" href="#signup">Sign Up</a></li>
+      <li class="col-sm-6 col-md-6"><a data-toggle="modal" href="#login">Log in</a></li>
+      <li class="col-sm-6 col-md-6"><a data-toggle="modal" href="#signup">Sign Up</a></li>
     <% end %>
     </ul>
   </div>
