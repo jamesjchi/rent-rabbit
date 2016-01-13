@@ -47,12 +47,24 @@ class UsersController < ApplicationController
   def update
     user = User.find params[:id]
     user.update update_user_params
+
+    # Update image, if user uploaded an image.
+    if params[:user][:image]
+      uploaded_image = params[:user][:image].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded_image)
+      user.update({:image => cloud_file["public_id"]})
+    end
+
     redirect_to user
   end
 
   def show
     @user = User.find params[:id]
     @item = @user.item
+    @review = Review.all
+    puts "hello"
+    puts @review
+    puts "goodbye"
   end
 
   def destroy

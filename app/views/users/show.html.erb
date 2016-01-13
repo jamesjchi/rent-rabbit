@@ -3,7 +3,16 @@
   </section>
   <section class="row">
     <div class="col-xs-3 well userWell">
-      <img src="<%= @user.image %>" class="profileImg">
+      <%= cl_image_tag(@user.image,
+                          :height  => 150,
+                          :width   => 150,
+                          :radius  => 'max',
+                          :crop    => :fill,
+                          :gravity => :face,
+                          :b       => 'rgb:909291',
+
+                      )
+      %>
       <hr>
       <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
       <hr>
@@ -24,16 +33,12 @@
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for @user, url: { :action => "update", :controller => "users"}, :method => "put" do |u| %>
-                <%= u.password_field :password, placeholder: "Enter your password to update profile" %>
-                <% if @user.provider %>
-                  <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
-                <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
                 <%= u.text_field :location, placeholder: "Enter Location", hide_label: true %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
-                <%= u.file_field :image %>
+                <%= u.file_field :image, :value => @user.image %>
                 <%= u.primary "Update" %>
               <% end %>
             </div>
@@ -80,7 +85,15 @@
         </div>
       </div>
       <div class="well">
-        <p>Reviews</p>
+        <p>Reviews </p>
+        <% @review.each do |r| %>
+          <% if r.reviewer_id === @user.id %>
+          <h2><%= r.review %></h2>
+          <h3> Rating of : <%= r.rating %>/5 </h3>
+          <hr>
+          <% end %>
+
+        <% end %>
       </div>
     </div>
     <div class="col-xs-2">

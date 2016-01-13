@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
       r.save
     end
-    redirect_to root_path
+    redirect_to user_show_path
   end
 
   def show
@@ -16,6 +16,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :review, :reviewer_id)
+    params.require(:review).permit(:rating, :review)
   end
 end
