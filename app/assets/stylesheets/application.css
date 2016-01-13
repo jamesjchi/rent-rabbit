@@ -6,9 +6,9 @@
 }
 .brand {
     position: absolute;
-    left: 41%;
     display: block;
     margin-top: -10px;
+    left: 4px;
 }
 .navbar{
 	background-color: rgba(255,255,255,0.9);
@@ -17,14 +17,12 @@
 .navbar-left li a {
  line-height: 55px;
  font-size: 18px;
- margin-left: 50px;
- margin-right: 0px;
+ text-align: center;
 }
 .navbar-right li a {
  line-height: 55px;
  font-size: 18px;
- margin-left: 60px;
- margin-right: 30px;
+ text-align: center;
 }
 ul.nav a:hover {
 	color: green !important;
@@ -246,6 +244,7 @@ h2{
 #profileModal {
   font-family : 'Russo One', sans-serif;
 }
+
 .item-main {
   margin-top: 150px;
   border: 3px solid black;
@@ -259,6 +258,24 @@ h2{
 }
 .item-update {
   margin-top: 150px;
+}
+
+.navbar-collapse.collapsing,
+.navbar-collapse.collapse.in {
+	width: 60%;
+	float: right;
+	margin-top: 28px;
+	background-color:rgba(255,255,255,0.9);
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.navbar-collapse.collapsing a,
+.navbar-collapse.collapse.in a {
+	line-height: 28px;
+}
+.navbar-collapse.collapsing a:hover,
+.navbar-collapse.collapse.in a:hover{
+	background-color: rgba(201,223,128,0.5);
 }
 
 /*
