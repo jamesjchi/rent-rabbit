@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
 
   def is_main_authenticated?
   	unless current_user
-  		#flash[:danger] = "Credentials Invalid"
-  		#redirect_to root_path
+
   	end
   end
 
