@@ -29,12 +29,18 @@
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/items">Item list</a></li>
-        <form class="navbar-form navbar-right" role="search">
+        <li>
+          <%= form_tag(items_path, :method => 'get', id: "search-form") do  %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Items" %>
+          <%= submit_tag 'Submit' %>
+          <% end %>
+        </li>
+        <!-- <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search Items">
         </div>
         <button type="submit" class="btn btn-success nav-btn">Submit</button>
-      </form>
+      </form> -->
     </ul>
     <ul class="nav navbar-nav navbar-left">
     <% if @current_user %>

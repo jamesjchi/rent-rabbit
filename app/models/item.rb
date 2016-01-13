@@ -23,4 +23,8 @@ class Item < ActiveRecord::Base
   validates :end_date,
     presence: true
 
+    def self.search(search)
+      where("title ILIKE ?", "%#{search}%") || where("description ILIKE ?", "%#{search}%")    
+    end
+
 end

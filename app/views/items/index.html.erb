@@ -1,4 +1,4 @@
-
+<% if @items.present? %>
   <% @items.each do |t| %>
   
     <div class="well">
@@ -16,3 +16,7 @@
   <% end %>
 
   <%= link_to "Add Another Item", "/items/new" %>
+
+<% else %>
+  <p>There are currently no items for rent that match "<%= params[:search] %>".</p>
+<% end %>
