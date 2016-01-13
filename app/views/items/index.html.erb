@@ -9,6 +9,7 @@
       <strong>Start Date:</strong> <%= t.start_date %><br>
       <strong>End Date:</strong> <%= t.end_date %><br>
       <strong>Listed On:</strong> <%= t.created_at.strftime("%m/%d/%Y") %><br>
+      <%= link_to "Want to Rent This Item?", user_path(t) %><br>
       <%= link_to "Edit Item", item_path(t) %>
     </div>
 
