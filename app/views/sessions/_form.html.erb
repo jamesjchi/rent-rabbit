@@ -1,3 +1,5 @@
+<%= link_to "Facebook Login", "/auth/facebook", class: "btn btn-primary oauthLogin" %>
+
 <%= bootstrap_form_for :user, url: login_path do |f| %>
 	<%= f.email_field :email %>
 	<%= f.password_field :password %>

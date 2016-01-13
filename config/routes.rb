@@ -38,12 +38,16 @@ Rails.application.routes.draw do
   # get 'users/destroy'
 
   # User routes
-  get 'signup'        => 'users#new'
+  get 'signup'                  => 'users#new'
 
   # Sessions routes
-  get 'login'         => 'sessions#new'
-  post 'login'        => 'sessions#create'
-  get 'logout'        => 'sessions#destroy'
+  get 'login'                   => 'sessions#new'
+  post 'login'                  => 'sessions#create'
+  get 'logout'                  => 'sessions#destroy'
+
+  get 'auth/logout'             => 'auth#logout'
+  get 'auth/failure'            => 'auth#failure'
+  get 'auth/:provider/callback' => 'auth#callback'
 
   resources :users do
     resources :reviews
