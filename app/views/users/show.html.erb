@@ -25,7 +25,9 @@
             <div class="modal-body">
               <%= bootstrap_form_for @user, url: { :action => "edit", :controller => "users"}, :method => "get" do |u| %>
                 <%= u.password_field :password %>
-                <!-- <%= u.password_field :password_confirmation %> -->
+                <% if @user.provider %>
+                  <h5>Password for update is <%= @user.provider %></h5>
+                <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
