@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery.js"></script>
@@ -14,14 +13,41 @@
   
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <a class="navbar-brand brand hidden-xs" href="#">
+  <img alt="Brand" src="assets/Rent-Rabbit-Logo-words.svg">
+  </a>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Item list</a></li>
+        <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Items">
+        </div>
+        <button type="submit" class="btn btn-success nav-btn">Submit</button>
+      </form>
+    </ul>
+    <ul class="nav navbar-nav navbar-left">
+    <% if @current_user %>
+  Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
+      <% else %>
+      <li><a data-toggle="modal" href="#login">Log in</a></li>
+      <li><a data-toggle="modal" href="#signup">Sign Up</a></li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
+</nav>
 
 <%= render 'partials/flash' %>
-
-<% if @current_user %>
-	Signed in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
-<% else %>
-	<a data-toggle="modal" href="#login">Login</a> | <a data-toggle="modal" href="#signup">Sign Up</a>
-<% end %>
 
 <%= yield %>
 
@@ -56,7 +82,10 @@
 </div>
 
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<%= javascript_include_tag 'skrollr.js' %>
+<%= javascript_include_tag '_main.js' %>
 </body>
 
 </html>
