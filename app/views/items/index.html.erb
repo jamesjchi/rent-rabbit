@@ -1,6 +1,7 @@
 
-  <% @items.each do |t| %>
-  
+
+  <div class="container item-main">
+    <% @items.each do |t| %>
     <div class="well">
       <strong>Title:</strong> <%= t.title %><br>
       <strong>Description:</strong> <%= t.description %><br>
@@ -9,10 +10,14 @@
       <strong>Start Date:</strong> <%= t.start_date %><br>
       <strong>End Date:</strong> <%= t.end_date %><br>
       <strong>Listed On:</strong> <%= t.created_at.strftime("%m/%d/%Y") %><br>
-      <%= link_to "Want to Rent This Item?", user_path(t) %><br>
+      <%= link_to "Want to Rent This Item?", user_path(t.user_id) %><br>
       <%= link_to "Edit Item", item_path(t) %>
-    </div>
+    </div> 
+    <% end %> 
+  </div>
 
-  <% end %>
+  <div class="container">
+    <%= link_to "Add Another Item", "/items/new" %>
+  </div>
 
-  <%= link_to "Add Another Item", "/items/new" %>
+  

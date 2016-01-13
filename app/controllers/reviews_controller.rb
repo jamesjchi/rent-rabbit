@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    Review.creat review_params do |r|
+    Review.create review_params do |r|
 
       r.save
     end
