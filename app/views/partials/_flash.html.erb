@@ -1,3 +1,11 @@
+
+
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"> <%= value %></div>
 <% end %>
+
+<script>
+	$(function() {
+     	$('.alert').delay(4000).slideUp().fadeOut();
+	});
+</script>

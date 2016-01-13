@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   # get 'users/destroy'
 
   # User routes
+
   get 'signup'                  => 'users#new'
 
   # Sessions routes
