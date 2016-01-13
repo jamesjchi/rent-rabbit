@@ -38,13 +38,17 @@ Rails.application.routes.draw do
   # get 'users/destroy'
 
   # User routes
-  get 'signup'        => 'users#new'
-  
+
+  get 'signup'                  => 'users#new'
 
   # Sessions routes
-  get 'login'         => 'sessions#new'
-  post 'login'        => 'sessions#create'
-  get 'logout'        => 'sessions#destroy'
+  get 'login'                   => 'sessions#new'
+  post 'login'                  => 'sessions#create'
+  get 'logout'                  => 'sessions#destroy'
+
+  get 'auth/logout'             => 'auth#logout'
+  get 'auth/failure'            => 'auth#failure'
+  get 'auth/:provider/callback' => 'auth#callback'
 
   resources :users do
     resources :reviews
@@ -52,8 +56,6 @@ Rails.application.routes.draw do
 
   resources :items
   root 'main#index'
-
-  post '/users' => 'users#edit'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
