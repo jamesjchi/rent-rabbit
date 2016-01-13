@@ -14,12 +14,11 @@
 	background-color: rgba(255,255,255,0.9);
 	height: 80px;
 }
-
 .navbar-left li a {
  line-height: 55px;
  font-size: 18px;
- margin-left: 100px;
- margin-right: -10px;
+ margin-left: 50px;
+ margin-right: 0px;
 }
 .navbar-right li a {
  line-height: 55px;
@@ -101,16 +100,6 @@ hr{
 #transition-1{
 	color:rgb(54,128,55);
 }
-.curtainContainer {
-    width: 100%; height: 100%;
-    position: relative;
-}
-.curtainContainer .curtain {
-    width: 100%; height: 1px;
-    background-color: #fff;
-    position: absolute; top: 25%; left: 0;
-    opacity: 0
-}
 .plaxEl {
     position: absolute;
     bottom: 40%; right: 16%;
@@ -148,6 +137,15 @@ hr{
     background: none; background-color: rgb(201,223,128);
     position: fixed; bottom: 0; left: 0;
     opacity: 0; z-index: 2
+}
+h2{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing: 1px;
+	font-size: 40px;
+	color:rgb(54,128,55);
+}
+.btn:focus,.btn:active {
+   outline: none !important;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
