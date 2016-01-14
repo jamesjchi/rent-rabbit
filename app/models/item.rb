@@ -33,10 +33,4 @@ class Item < ActiveRecord::Base
       # where("description ILIKE ?", "%#{search}%")    
     end
 
-    def after_initialize
-      if new_record?
-        rented ||= false
-      end
-    end
-
 end
