@@ -10,6 +10,7 @@ $(function() {
     });
     $( "#item_end_date" ).datepicker({
       defaultDate: "+1w",
+      minDate: "0",
       changeMonth: true,
       numberOfMonths: 3,
       beforeShow: function (input, inst) {

@@ -265,7 +265,6 @@ h2{
 #profileModal {
   font-family : 'Russo One', sans-serif;
 }
-
 .item-main {
   margin-top: 150px;
   border: 3px solid black;
@@ -274,7 +273,6 @@ h2{
   overflow: scroll;
   background-color: rgb(145, 145, 147);
 }
-.item-update,
 .item-new {
   margin-top: 100px;
   text-align: center;
@@ -286,6 +284,21 @@ h2{
 .item-new p {
 	color: gray;
 	font-size: 18px;
+}
+
+.well-item {
+  height: 380px;
+  width: 377px;
+  overflow: scroll;
+}
+.well-error {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 20px;
+}
+.item-description {
+  width: 350px;
 }
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
