@@ -3,7 +3,16 @@
   </section>
   <section class="row">
     <div class="col-xs-3 well userWell">
-      <img src="<%= @user.image %>" class="profileImg">
+      <%= cl_image_tag(@user.image,
+                          :height  => 150,
+                          :width   => 150,
+                          :radius  => 'max',
+                          :crop    => :fill,
+                          :gravity => :face,
+                          :b       => 'rgb:909291',
+
+                      )
+      %>
       <hr>
       <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
       <hr>
@@ -32,19 +41,17 @@
                 <% if @user.provider %>
                   <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
                 <% end %>
-
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
                 <%= u.select :location,
                   [
                     ["Seattle"], ["Bellevue"], ["Green Lake"], ["Bothell"], ["West Seattle"], ["Northgate"], ["Ballard"]
-                    
+
                 ], { label: "Choose your neighborhood" }, { class: "selectpicker" }
                   %>
                 <%= u.text_area :bio, placeholder: "Write a bio", hide_label: true %>
                 <%= u.file_field :image %>
-
                 <%= u.primary "Update" %>
               <% end %>
             </div>
@@ -86,10 +93,10 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %></h4>
+              <h4 class="modal-title" id="reviewModalLabel">Review for <%= @user.first_name %> <%= @user.last_name.first %>.</h4>
             </div>
             <div class="modal-body">
-
+              <%= render 'reviews/form' %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-warning close" data-dismiss="modal" aria-label="Close">Close</button>
@@ -98,7 +105,21 @@
         </div>
       </div>
       <div class="well">
-        <p>Reviews</p>
+        <p>Reviews </p>
+        <% @reviews.each do |r| %>
+          <% if r.reviewer_id === @user.id %>
+          <h2><%= r.review %></h2>
+          <h3> Rating of : <%= r.rating %>/5
+            <% if r.first_name %>
+              <small>By : <%= r.first_name %>
+            <% end %>
+            <% if r.last_name %>
+              <%= r.last_name.first %>.
+            <% end %></small></h3>
+          <hr>
+          <% end %>
+
+        <% end %>
       </div>
     </div>
     <div class="col-xs-2">
