@@ -174,6 +174,12 @@ h2{
   margin  : -15px;
   padding : -10px;
 }
+.btn.btn-danger {
+  width: 100%;
+  background-color: darkred;
+  border: 1px solid darkred;
+  margin-top: 10px;
+}
 .itemDescripDiv {
   width            : 90%;
   font-family      : 'Lobster Two', cursive;
@@ -187,6 +193,10 @@ h2{
   color       : rgb(242, 235, 237);
   font-family : 'Lobster Two', cursive;
   font-size   : 11px;
+}
+.userItemSpan {
+  position : relative;
+  right    : 25%;
 }
 .userWell {
   border-radius    : 15px;
