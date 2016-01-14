@@ -24,14 +24,14 @@ class ItemsController < ApplicationController
       flash[:danger] = messages.join(', ').gsub!(/_/, ' ')
       redirect_to new_item_path
     end
-
-    uploaded = params[:item][:image].path
-    cloud_file = Cloudinary::Uploader.upload(uploaded)
-    if (File.exists?(uploaded))
-      File.delete(uploaded)
-    end
+    if params[:item][:image]
+      uploaded = params[:item][:image].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded)
+      if (File.exists?(uploaded))
+        File.delete(uploaded)
+      end
     @item.update({:image => cloud_file["public_id"]})
-
+    end
   end
 
   def new
@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
       end
       item.update({:image => cloud_file["public_id"]})
     end
-    redirect_to items_path
+    redirect_to @current_user
   end
 
   def destroy

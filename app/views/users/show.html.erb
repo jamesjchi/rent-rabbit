@@ -65,10 +65,17 @@
       <section class="row">
         <% @item.each do |i| %>
           <div class="col-xs-5 userItems">
-            <img src="<%= i.image %>" class="bikeIcon">
+            <%= cl_image_tag(i.image,
+                          :height  => 150,
+                          :width   => 350,
+                          :crop    => :fill,
+                          :gravity => :face
+                      )
+            %>
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %>
+              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
+              <%= link_to "Edit Item", item_path(i) %>
             </div>
           </div>
         <% end %>
