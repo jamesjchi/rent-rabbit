@@ -49,7 +49,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @item = @user.item
-    @reviews = Review.all
+    @reviews = Review.all.where(reviewer_id: params[:id])
+    ratingScore = []
+
+    @reviews.each do |s|
+      if s.reviewer_id === @user.id
+      ratingScore.push(s.rating)
+    end
+  end
+    @ratingTotal = ratingScore.inject(:+)
   end
 
   def destroy

@@ -1,7 +1,7 @@
 <div class="container item-new">
   <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-10-offset-1">
   <h2>Add An Item For Rent</h2>
-  <p>Note: Please input at least a price per day or a price per week</p>
+  <p>Note: Please input at least one price per day or price per week</p>
   <%= bootstrap_form_for @item do |t| %>
     <%= t.text_field :title, placeholder: "Title", hide_label: true %>
     <%= t.text_area :description, placeholder: "Description", hide_label: true %>
