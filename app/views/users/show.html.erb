@@ -45,10 +45,6 @@
             <div class="modal-body">
 
               <%= bootstrap_form_for @user, url: { :action => "update", :controller => "users"}, :method => "put" do |u| %>
-                <%= u.password_field :password, placeholder: "Enter your password to update profile" %>
-                <% if @user.provider %>
-                  <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
-                <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
@@ -62,6 +58,7 @@
                 <%= u.file_field :image, label: "Input an image", :class => "col-md-6 col-md-offset-3 imageInput" %>
                 <%= u.primary "Update" %>
               <% end %>
+              <%= link_to "Delete", @user, :class => 'btn btn-danger userDelete', :data => {:confirm => 'Are you sure?'}, :method => :delete %>
             </div>
           </div>
         </div>
@@ -71,7 +68,7 @@
 <!--**** Beginning of item and review container ****-->
   <div class="container">
     <div class="col-xs-12 col-sm-9 col-md-9 userItems">
-      
+
         <% @item.each do |i| %>
           <div class="col-xs-6 col-sm-6 col-md-4 userItems">
             <%= cl_image_tag(i.image,
@@ -136,20 +133,20 @@
 
           <% if r.reviewer_id === @user.id %>
 
-            
+
           <h2><%= r.review %></h2>
           <h3> Rating of : <%= r.rating %>/5
-            
+
             <% if r.first_name %>
               <small>Written by : <%= r.first_name %>
             <% end %>
-            
+
             <% if r.last_name %>
               <%= r.last_name.first %>.
             <% end %> on : <%= r.created_at.strftime("%m/%d/%Y") %></small></h3>
             <hr>
-            
-            
+
+
           <% end %>
 
         <% end %>
