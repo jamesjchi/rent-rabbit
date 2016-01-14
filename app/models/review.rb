@@ -3,7 +3,11 @@ class Review < ActiveRecord::Base
 
   validates :rating,
     presence: true,
-    length: {in: 1..5}
+    numericality: {
+    	only_integer: true,
+    	greater_than: 0,
+    	less_than_or_equal_to: 5
+    }
 
   validates :review,
     presence: true,

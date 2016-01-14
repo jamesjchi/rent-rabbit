@@ -50,14 +50,16 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @item = @user.item
     @reviews = Review.all.where(reviewer_id: params[:id])
-    ratingScore = []
+    @ratingScore = []
 
-    @reviews.each do |s|
-      if s.reviewer_id === @user.id
-      ratingScore.push(s.rating)
-      end
+    @reviews.each do |s|      
+      @ratingScore.push(s.rating.to_f)    
     end
-    @ratingTotal = ratingScore.inject(:+)
+
+    @ratingTotal = @ratingScore.inject(:+)
+    if @ratingTotal
+      @average_rating = @ratingTotal/@ratingScore.length
+    end
   end
 
   def destroy

@@ -7,13 +7,14 @@ class ReviewsController < ApplicationController
       r.reviewer_id = params[:user_id]
       r.save
     end
+    @path = User.find params[:user_id]
+
     if @review.save
-      @path = User.find params[:user_id]
       flash[:success] = "You left a review"
       redirect_to user_path(@path)
     else
-      messages = @review.errors.map { |k, v| "#{k} #{v}" }
-      flash[:danger] = messages.join(', ').gsub!(/_/, ' ')
+      flash[:danger] = "Ratings between 1 and 5 only."
+      redirect_to user_path(@path)
     end
   end
 
