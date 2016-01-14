@@ -20,8 +20,27 @@
       <hr>
       <div class="rating hidden-xs">
                   <% if @ratingTotal != nil %>
-
-                  <h2>Average Rating: <%= @ratingTotal / @reviews.distinct.count('rating') %></h2>
+                  <h2><% @average_rating.floor.times do |i| %>
+                  <i class="fa fa-star"></i>
+                  <% end %>
+                  <% decimal = (@average_rating - (@average_rating.floor)) %>
+                  <% if decimal >= 0.3 %>
+                    <% if decimal < 0.8 %>
+                      <i class="fa fa-star-half-o"></i>
+                    <% else %>
+                      <i class="fa fa-star"></i>
+                    <% end %>
+                    <% (5 - (@average_rating.floor + 1)).times do |i| %>
+                    <i class="fa fa-star-o"></i>
+                    <% end %>
+                  <% else %>
+                    <% (5 - @average_rating.floor).times do |i| %>
+                    <i class="fa fa-star-o"></i>
+                    <% end %>
+                  <% end %>
+                  </h2>
+                  <!-- <h2>Average Rating: <%= @average_rating.round(1) %></h2> -->
+                  <h2>Number of Reviews: <%= @ratingScore.length %></h2>
                   <% else %>
                   <h2>No ratings for this user yet</h2>
                   <% end %>
@@ -123,16 +142,12 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
 
       <div class="well reviewWell">
       <% if @reviews.distinct.count('review') === 0 %>
             <h4>This user doesn't have any reviews yet. You could be the first!</h4>
             <% else %>
-=======
-      <div class="well">
-        <p>Reviews </p>
->>>>>>> 16ff000110282a69c59aa59503e6bde7dd54a960
+
         <% @reviews.each do |r| %>
 
           <% if r.reviewer_id === @user.id %>
