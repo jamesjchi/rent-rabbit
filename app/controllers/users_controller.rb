@@ -54,10 +54,12 @@ class UsersController < ApplicationController
 
     @reviews.each do |s|      
       @ratingScore.push(s.rating.to_f)    
-  end
+    end
 
     @ratingTotal = @ratingScore.inject(:+)
-    @average_rating = @ratingTotal/@ratingScore.length
+    if @ratingTotal
+      @average_rating = @ratingTotal/@ratingScore.length
+    end
   end
 
   def destroy

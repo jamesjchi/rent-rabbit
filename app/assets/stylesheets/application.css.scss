@@ -1,0 +1,398 @@
+.navbar-brand{
+    position : absolute;
+    width    : 100%;
+    margin   : auto;
+}
+.brand {
+    position   : absolute;
+    display    : block;
+    margin-top : -10px;
+}
+.logoImg{
+	position : absolute;
+	right    : 0;
+}
+.navbar{
+	background-color : rgba(255,255,255,0.9);
+	height           : 80px;
+}
+.navbar-left li a,
+.navbar-right li a {
+ line-height : 55px;
+ font-size   : 18px;
+ text-align  : center;
+}
+ul.nav a:hover {
+	color : green !important;
+}
+.navbar-form{
+	line-height : 65px;
+}
+.nav-btn{
+	background-color : darkgreen;
+	border           : 1px solid darkgreen;
+	color            : white;
+}
+.hsContainer {
+    display      : table;
+    table-layout : fixed;
+    width        : 100%;
+    height       : 100%;
+    overflow     : hidden;
+    position     : relative;
+}
+.hsContent {
+    max-width      : 450px;
+    margin         : -150px auto 0 auto;
+    display        : table-cell;
+    vertical-align : middle;
+    color          : #fff;
+    padding        : 0 8%;
+    text-align     : center
+}
+.bcg {
+    background-position   : center center;
+    background-repeat     : no-repeat;
+    background-attachment : fixed;
+    background-size       : cover;
+    height                : 100%;
+    width                 : 100%;
+}
+#slide-1 .bcg {
+	background-image : asset-url('Main.jpg');
+}
+#slide-2 .bcg {
+    background : none;
+    height     : 210px;
+    text-align : center
+}
+#slide-2 h2{
+	display : none;
+}
+.front{
+	margin-top       : 10%;
+	padding-top      : 2%;
+	color            : rgb(136,136,136);
+	background-color : rgba(255,255,255,0.9);
+	border-radius    : 18px;
+	font-family      : Helvetica;
+	font-size        : 60px;
+}
+hr{
+	border-top : 1px solid rgb(136,136,136);
+}
+#RR{
+	margin-bottom  : -10px;
+	letter-spacing : 4px;
+	font-weight    : 400;
+	font-size      : 60px;
+	color          :rgb(54,128,55);
+}
+#elevator{
+	margin-top : -5px;
+}
+.glyphicon{
+	font-size : 22px;
+}
+#find-out{
+	margin-bottom : -34px;
+}
+#transition-1{
+	color : rgb(54,128,55);
+}
+.plaxEl {
+	display          : none;
+  position         : absolute;
+  bottom           : 40%; right: 16%;
+	text-align       : center;
+  color            :rgb(54,128,55);
+  background-image : asset-url('Seattle-bg.svg');
+}
+#slide-4 .bcg4 {
+	background-image      : asset-url('Sign-up.svg');
+	background-position   : center center;
+  background-repeat     : no-repeat;
+  background-attachment : fixed;
+  background-size       : 80%;
+  height                : 100%;
+  width                 : 100%;
+}
+#slide-3 .bcg {
+	background-image : asset-url('Pick-up.svg');
+}
+#slide-6 .bcg {
+	background-image : asset-url('for-rent.svg');
+}
+#slide-5 {
+	position : relative;
+}
+#slide-5 .bcg5 {
+  background-image      : asset-url('Get-paid.svg');
+	background-position   : center center;
+  background-repeat     : no-repeat;
+  background-attachment : fixed;
+  background-size       : 50%;
+  height                : 100%;
+  width                 : 100%;
+}
+#slide-5 .bcg3 {
+  background       : none;
+  background-color : rgb(201,223,128);
+  position         : fixed;
+  bottom           : 0;
+  left             : 0;
+  opacity          : 0;
+  z-index          : 2;
+}
+h2{
+	font-family    : 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing : 1px;
+	font-size      : 40px;
+	color          : rgb(54,128,55);
+}
+.forRoomTop {
+  height : 85px;
+}
+.forRoomBottom {
+  height : 85px;
+}
+.modal-body {
+  text-align     : center;
+  font-family    : 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing : 1px;
+  color          : rgb(54,128,55);
+  font-size      : 30px;
+}
+.userContainer {
+  height           : 100%;
+  width            : 100%;
+  padding          : 75px;
+  position         : relative;
+}
+.profileImg {
+  height        : 150px;
+  border-radius : 100px
+}
+.bikeIcon {
+  height  : 200px;
+  width   : 100%;
+}
+.userItems {
+  position : relative;
+  top      : 30px;
+}
+.eachItem {
+  width   : 90%;
+  margin  : -15px;
+  padding : -10px;
+}
+.btn.btn-danger {
+  width            : 100%;
+  background-color : darkred;
+  border           : 1px solid darkred;
+  margin-top       : 10px;
+}
+.itemDescripDiv {
+  width            : 90%;
+  font-family      : 'Lobster Two', cursive;
+  position         : relative;
+  top              : -75px;
+  left             : 7px;
+  background-color : rgb(200,200,200);
+  opacity          : 0.5;
+}
+.itemDescripDiv h2 {
+  color       : rgb(242, 235, 237);
+  font-family : 'Lobster Two', cursive;
+  font-size   : 11px;
+}
+.userItemSpan {
+  position : relative;
+  right    : 25%;
+}
+.userWell {
+  border-radius    : 15px;
+  border           : 2px solid rgb(54,128,55);
+  background-color : rgb(200,200,200);
+  max-height       : 100%;
+}
+.imageInput{
+	width       : 100%;
+	font-size   : 20px;
+	line-height : 0px;
+	height      : 40px;
+	text-align  : center;
+}
+.userWell h1 {
+  font-size      : 30px;
+  color          : rgb(54,128,55);
+  font-family    : 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing : 1px;
+  text-align     : center;
+}
+.userWell h2 {
+  font-size : 20px;
+}
+.about {
+  height : 100px;
+  margin : 5px;
+  width  : 100%;
+}
+.bio {
+  height : 100%;
+  margin : 5px;
+  width  : 100%;
+}
+.bio h2 {
+  font-size   : 18px;
+  font-weight : 200;
+  color       : gray;
+  line-height : 26px;
+}
+.rating {
+  height : 30px;
+  margin : 5px;
+  width  : 100%;
+}
+.rating h2 {
+  position    : relative;
+  text-align  : center;
+  color       : gold;
+  font-size   : 22px;
+  line-height : 30px
+}
+.reviewDiv {
+  border         : 2px solid rgb(54,128,55);
+  border-radius  : 15px;
+  font-family    : 'Yanone Kaffeesatz', sans-serif;
+  color          : rgb(54,128,55);
+  letter-spacing : 1px;
+  text-align     : center;
+  overflow       : scroll;
+  float          : right;
+  max-height     : 350px;
+}
+.wellWell {
+  width                      : 100%;
+  background-color           : rgb(200,200,200);
+  border                     : transparent !important;
+  margin                     : 5px 0 5px 0;
+  border-bottom-left-radius  : 0px;
+  border-bottom-right-radius : 0px;
+  height                     : 100px;
+}
+.wellWell h1{
+	margin-top : -10px;
+}
+.reviewWell{
+  border-top-left-radius  : 0px;
+  border-top-right-radius : 0px;
+}
+#profileModalLabel {
+  text-align : center;
+
+}
+#profileModal {
+  font-family : 'Russo One', sans-serif;
+}
+.item-main {
+  margin-top       : 150px;
+  border           : 3px solid black;
+  height           : 800px;
+  width            : 100%;
+  overflow         : scroll;
+  background-color : rgb(145, 145, 147);
+}
+.item-new {
+  margin-top     : 100px;
+  text-align     : center;
+  font-family    : 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing : 1px;
+  color          : rgb(54,128,55);
+  font-size      : 30px;
+}
+.item-new p {
+	color     : gray;
+	font-size : 18px;
+}
+
+.well-item {
+  height   : 380px;
+  width    : 377px;
+  overflow : scroll;
+}
+.well-error {
+  text-align  : center;
+  margin-top  : 80px;
+  font-family : 'Yanone Kaffeesatz', sans-serif;
+  font-size   : 20px;
+}
+.item-description {
+  width : 350px;
+}
+.navbar-collapse.collapsing,
+.navbar-collapse.collapse.in {
+	width                      : 60%;
+	float                      : right;
+	margin-top                 : 28px;
+	background-color           : rgba(255,255,255,0.9);
+	border-bottom-left-radius  : 6px;
+	border-bottom-right-radius : 6px;
+}
+.navbar-collapse.collapsing a,
+.navbar-collapse.collapse.in a {
+	line-height : 28px;
+}
+.navbar-collapse.collapsing a:hover,
+.navbar-collapse.collapse.in a:hover{
+	background-color : rgba(201,223,128,0.5);
+}
+a:hover{
+	text-decoration : none;
+	color           : green;
+}
+.modal-title{
+	text-align     : center;
+	font-family    : 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing : 1px;
+	font-size      : 40px;
+	color          : rgb(54,128,55);
+}
+.btn.btn-primary{
+	width            : 100%;
+	background-color : darkgreen;
+	border           : 1px solid darkgreen;
+}
+.btn.btn-danger{
+	width            : 100%;
+	background-color : darkred;
+	border           : 1px solid darkred;
+	margin-top       : 10px;
+}
+.btn.btn-primary.oauthLogin{
+	width            : 100%;
+	background-color : rgb(201,223,128);
+	border           : 1px solid rgb(201,223,128);
+	margin-top       : 10px;
+}
+#ui-datepicker-div{
+	z-index : 99 !important;
+}
+.cloudImg{
+	border : 1px solid red;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
