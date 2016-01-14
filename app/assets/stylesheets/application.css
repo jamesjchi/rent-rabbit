@@ -170,11 +170,12 @@ h2{
   top      : 30px;
 }
 .eachItem {
+  width   : 90%;
   margin  : -15px;
   padding : -10px;
 }
 .itemDescripDiv {
-  width            : 95%;
+  width            : 90%;
   font-family      : 'Lobster Two', cursive;
   position         : relative;
   top              : -75px;
@@ -239,6 +240,7 @@ h2{
   color: rgb(54,128,55);
   letter-spacing: 1px;
   text-align: center;
+  overflow: scroll;
 }
 .wellWell {
   width            : 100%;
@@ -253,6 +255,22 @@ h2{
 #profileModal {
   font-family : 'Russo One', sans-serif;
 }
+
+.item-main {
+  margin-top: 150px;
+  border: 3px solid black;
+  height: 800px;
+  width: 100%;
+  overflow: scroll;
+  background-color: rgb(145, 145, 147);
+}
+.item-new {
+  margin-top: 150px;
+}
+.item-update {
+  margin-top: 150px;
+}
+
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
 	width: 60%;

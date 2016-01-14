@@ -31,14 +31,14 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right col-sm-6 col-md-5">
-        <li class="col-md-4 hidden-sm"><a href="/items">For rent</a></li>
-<%= form_tag(items_path, :method => 'get', id: "search-form", :class => "navbar-form navbar-right col-sm-12 col-md-8 hidden-xs") do  %>
-        <div class="form-group">
-         <%= text_field_tag :search, params[:search], placeholder: "Search Items", :class => "form-control" %>
-         </div>
-         <%= submit_tag 'Submit', :class => "btn btn-success nav-btn" %>
-         <% end %>
-    </ul>
+       <li class="col-md-4 hidden-sm"><a href="/items">For rent</a></li>
+        <%= form_tag(items_path, :method => 'get', id: "search-form", :class => "navbar-form navbar-right col-sm-12 col-md-8 hidden-xs") do  %>
+       <div class="form-group">
+        <%= text_field_tag :search, params[:search], placeholder: "Search Items", :class => "form-control" %>
+        </div>
+        <%= submit_tag 'Submit', :class => "btn btn-success nav-btn" %>
+        <% end %>
+   </ul>
     <ul class="nav navbar-nav navbar-left col-sm-6 col-md-5">
     <% if @current_user %>
  <li class="col-sm-6 col-md-6"><%= link_to @current_user.first_name + "'s profile", "/users/" + @current_user.id.to_s %></li> <li class="col-sm-6 col-md-6"><%= link_to "Logout", logout_path %></li>

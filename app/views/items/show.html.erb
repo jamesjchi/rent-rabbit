@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container item-update">
   <h1>Update Item</h1>
   <%= bootstrap_form_for @item do |t| %>
     <%= t.text_field :title %>
@@ -7,10 +7,13 @@
     <%= t.text_field :price_week %>
     <%= t.text_field :start_date %>
     <%= t.text_field :end_date %>
+    <%= t.file_field :image %>
+    <%= t.select :rented, [["true"], ["false"]], { class: "selectpicker" }, :label => "Rented?" %>
 
     <%= t.primary "Update", :class => 'btn btn-primary', :data => {:confirm => 'Are you sure?'} %>
     <span>
-    <%= link_to "Delete", @item, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete %></span>
+    <%= link_to "Delete", @item, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete %>
+    </span>
   <% end %>
   
   

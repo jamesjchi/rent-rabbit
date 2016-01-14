@@ -4,6 +4,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    if params[:search]
+      @items = Item.search(params[:search]).order("created_at DESC")
+    else
+      @items = Item.all.order('created_at DESC')
+    end
   end
 
   def create
@@ -13,11 +18,19 @@ class ItemsController < ApplicationController
     end
     if @item.save
       flash[:success] = "Item Created"
-      redirect_to items_path
+      redirect_to @current_user
     else
       messages = @item.errors.map { |k, v| "#{k} #{v}" }
       flash[:danger] = messages.join(', ').gsub!(/_/, ' ')
       redirect_to new_item_path
+    end
+    if params[:item][:image]
+      uploaded = params[:item][:image].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded)
+      if (File.exists?(uploaded))
+        File.delete(uploaded)
+      end
+    @item.update({:image => cloud_file["public_id"]})
     end
   end
 
@@ -36,7 +49,16 @@ class ItemsController < ApplicationController
   def update
     item = Item.find params[:id]
     item.update item_params
-    redirect_to items_path
+    # Update image, if item has an image
+    if params[:item][:image]
+      uploaded_image = params[:item][:image].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded_image)
+      if (File.exists?(uploaded_image))
+      File.delete(uploaded_image)
+      end
+      item.update({:image => cloud_file["public_id"]})
+    end
+    redirect_to @current_user
   end
 
   def destroy
@@ -47,6 +69,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price_day, :price_week, :start_date, :end_date)
+    params.require(:item).permit(:title, :description, :price_day, :price_week, :start_date, :end_date, :image, :rented)
   end
 end

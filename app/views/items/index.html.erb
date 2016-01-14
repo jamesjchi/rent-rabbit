@@ -1,18 +1,39 @@
+<% if @items.present? %>
+  
+  <div class="container item-container">
 
-  <% @items.each do |t| %>
-
-    <div class="well">
-      <strong>Title:</strong> <%= t.title %><br>
-      <strong>Description:</strong> <%= t.description %><br>
-      <strong>Price Per Day:</strong><span> $</span><%= t.price_day %><br>
-      <strong>Price Per Week:</strong><span> $</span><%= t.price_week %><br>
-      <strong>Start Date:</strong> <%= t.start_date %><br>
-      <strong>End Date:</strong> <%= t.end_date %><br>
-      <strong>Listed On:</strong> <%= t.created_at.strftime("%m/%d/%Y") %><br>
-      <%= link_to "Want to Rent This Item?", user_path(t.user_id) %><br>
-      <%= link_to "Edit Item", item_path(t) %>
+    <div class="container item-main">
+      <section class="row">
+      <% @items.each do |t| %>
+     
+        <div class="well col-xs-4 col-md-4">
+          <strong>Title:</strong> <%= t.title %><br>
+          <%= cl_image_tag(t.image,
+                          :width => 340,
+                          :height => 200,
+                          :crop => :fill,
+                          :gravity => :face
+                          ) 
+          %><br>
+          <strong>Description:</strong> <%= t.description %><br>
+          <strong>Price Per Day:</strong><span> $</span><%= t.price_day %><br>
+          <strong>Price Per Week:</strong><span> $</span><%= t.price_week %><br>
+          <strong>Start Date:</strong> <%= t.start_date %><br>
+          <strong>End Date:</strong> <%= t.end_date %><br>
+          <strong>Listed On:</strong> <%= t.created_at.strftime("%m/%d/%Y") %><br>
+          
+          <%= link_to "Want to Rent This Item?", user_path(t.user_id) %><br>
+          
+        </div> 
+      
+      <% end %> 
+      </section>
     </div>
+  </div>
 
-  <% end %>
 
-  <%= link_to "Add Another Item", "/items/new" %>
+
+<% else %>
+  <p>There are currently no items for rent that match "<%= params[:search] %>".</p>
+<% end %>
+

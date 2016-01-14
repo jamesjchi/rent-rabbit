@@ -27,32 +27,29 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.find params[:id]
-    # uploaded = params[:user][:image].path
-    # cloud_file = Cloudinary::Uploader.upload(uploaded)
-    # if (File.exists?(uploaded))
-    #   File.delete(uploaded)
-    # end
-    # userUpload = @user.update({:image => cloud_file["public_id"]})
-    # userUpload.save
-    # @user.update_attributes(update_user_params)
-    # if @user.save
-    #   redirect_to @user
-    # else
-    #   flash[:danger] = "Please Enter Password"
-    #   redirect_to @user
-    # end
   end
 
   def update
     user = User.find params[:id]
     user.update update_user_params
+
+    # Update image, if user uploaded an image.
+    if params[:user][:image]
+      uploaded_image = params[:user][:image].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded_image)
+      if (File.exists?(uploaded_image))
+        File.delete(uploaded_image)
+      end
+      user.update({:image => cloud_file["public_id"]})
+    end
+
     redirect_to user
   end
 
   def show
     @user = User.find params[:id]
     @item = @user.item
+    @reviews = Review.all
   end
 
   def destroy
