@@ -5,14 +5,10 @@
     <div class="col-xs-3 well userWell">
       <div class="row">
       <%= cl_image_tag(@user.image,
-                          :height  => 150,
-                          :width   => 290,
                           :class   => 'profileImg col-xs-6 col-sm-6 col-md-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3',
                           :radius  => 'max',
                           :crop    => :fill,
-                          :bo      => '6px_solid_rgb:00390b60',
-                          :gravity => :face,
-                          :b       => :gray
+                          :gravity => :face
                       )
       %>
       </div>
@@ -40,6 +36,10 @@
             <div class="modal-body">
 
               <%= bootstrap_form_for @user, url: { :action => "update", :controller => "users"}, :method => "put" do |u| %>
+                <%= u.password_field :password, placeholder: "Enter your password to update profile" %>
+                <% if @user.provider %>
+                  <h5>Your Rent-Rabbit password is : <u><%= @user.provider %></u></h5>
+                <% end %>
                 <%= u.text_field :first_name, hide_label: true %>
                 <%= u.text_field :last_name, hide_label: true %>
                 <%= u.text_field :email, hide_label: true %>
@@ -53,7 +53,6 @@
                 <%= u.file_field :image, label: "Input an image", :class => "col-md-6 col-md-offset-3 imageInput" %>
                 <%= u.primary "Update" %>
               <% end %>
-              <%= link_to "Delete", @user, :class => 'btn btn-danger userDelete', :data => {:confirm => 'Are you sure?'}, :method => :delete %>
             </div>
           </div>
         </div>
@@ -73,12 +72,14 @@
             %>
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <% if i.rented == false || nil %>
+              <% if i.rented == false %>
                 <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
               <% else %>
                 <p>Not Currently Available</p>
               <% end %>
-              <%= link_to "Edit Item", item_path(i) %>
+              <% if @current_user.id === @user.id %>
+                <%= link_to "Edit Item", item_path(i) %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -104,10 +105,14 @@
             <div class="modal-body">
               <%= render 'reviews/form' %>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning close" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
           </div>
         </div>
       </div>
       <div class="well">
+        <p>Reviews </p>
         <% @reviews.each do |r| %>
           <% if r.reviewer_id === @user.id %>
           <h2><%= r.review %></h2>

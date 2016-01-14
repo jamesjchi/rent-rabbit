@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @item = @user.item
     @reviews = Review.all
+
   end
 
   def destroy

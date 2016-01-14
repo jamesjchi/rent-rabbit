@@ -15,7 +15,9 @@
                           :gravity => :face
                           ) 
           %><br>
-          <strong>Description:</strong> <%= t.description %><br>
+          <div class="item-description">
+            <strong>Description:</strong> <%= t.description %><br>
+          </div>
           <strong>Price Per Day:</strong><span> $</span><%= t.price_day %><br>
           <strong>Price Per Week:</strong><span> $</span><%= t.price_week %><br>
           <strong>Start Date:</strong> <%= t.start_date %><br>

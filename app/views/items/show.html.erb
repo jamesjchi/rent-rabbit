@@ -11,7 +11,7 @@
     <%= t.text_field :end_date, placeholder: "End Date", hide_label: true %>
     <%= t.file_field :image, label: "Input an image", :class => "col-md-4 col-md-offset-4 imageInput" %>
 
-    <%= t.select :rented, [["true"], ["false"]], { class: "selectpicker" }, :label => "Rented?" %>
+    <%= t.select :rented, [["Yes", "true"], ["No", "false"]], { class: "selectpicker" }, :label => "Rented?" %>
 
     <%= t.primary "Update", :class => 'btn btn-primary', :data => {:confirm => 'Are you sure?'} %>
     <span>
