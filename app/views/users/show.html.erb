@@ -73,7 +73,7 @@
             %>
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
+              <a href="mailto:<%= @user.email %>?subject=Rent <%= i.title %>", class: "btn btn-success btn-sm modalBtn">Contact About Renting</a> <br>
               <%= link_to "Edit Item", item_path(i) %>
             </div>
           </div>
