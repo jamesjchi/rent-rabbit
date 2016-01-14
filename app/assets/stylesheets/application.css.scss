@@ -106,10 +106,10 @@ hr{
     bottom: 40%; right: 16%;
 	text-align: center;
     color:rgb(54,128,55);
-    background-image: image_path("/assets/imagesSeattle-bg.svg");
+    background-image: image_path("/assets/images/Seattle-bg.svg");
 }
 #slide-4 .bcg4 {
-	background-image: image_path("/assets/imagesSign-up.svg");
+	background-image: image_path("/assets/images/Sign-up.svg");
 	background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -118,15 +118,15 @@ hr{
     width: 100%;
 }
 #slide-3 .bcg {
-	background-image: image_path("/assets/imagesPick-up.svg");
+	background-image: image_path("/assets/images/Pick-up.svg");
 }
 #slide-6 .bcg {
-	background-image: image_path("/assets/imagesfor-rent.svg");
+	background-image: image_path("/assets/images/for-rent.svg");
 }
 #slide-5 {
 	position: relative;
 }
-#slide-5 .bcg5 {background-image: image_path("/assets/imagesGet-paid.svg");
+#slide-5 .bcg5 {background-image: image_path("/assets/images/Get-paid.svg");
 	background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
