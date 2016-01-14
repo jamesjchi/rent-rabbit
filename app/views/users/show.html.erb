@@ -53,6 +53,7 @@
                 <%= u.file_field :image, label: "Input an image", :class => "col-md-6 col-md-offset-3 imageInput" %>
                 <%= u.primary "Update" %>
               <% end %>
+              <%= link_to "Delete", @user, :class => 'btn btn-danger userDelete', :data => {:confirm => 'Are you sure?'}, :method => :delete %>
             </div>
           </div>
         </div>
