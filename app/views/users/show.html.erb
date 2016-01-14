@@ -93,7 +93,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-              <h4 class="modal-title" id="reviewModalLabel">Review <%= @user.first_name %> <%= @user.last_name.first %></h4>
+              <h4 class="modal-title" id="reviewModalLabel">Review for <%= @user.first_name %> <%= @user.last_name.first %>.</h4>
             </div>
             <div class="modal-body">
               <%= render 'reviews/form' %>
@@ -109,7 +109,13 @@
         <% @reviews.each do |r| %>
           <% if r.reviewer_id === @user.id %>
           <h2><%= r.review %></h2>
-          <h3> Rating of : <%= r.rating %>/5 </h3>
+          <h3> Rating of : <%= r.rating %>/5
+            <% if r.first_name %>
+              <small>By : <%= r.first_name %>
+            <% end %>
+            <% if r.last_name %>
+              <%= r.last_name.first %>.
+            <% end %></small></h3>
           <hr>
           <% end %>
 

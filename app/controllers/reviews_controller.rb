@@ -8,12 +8,13 @@ class ReviewsController < ApplicationController
       r.save
     end
     if @review.save
+      @path = User.find params[:user_id]
       flash[:success] = "You left a review"
-      redirect_to user_url(params => params[:user_id])
+      redirect_to user_path(@path)
+    else
+      messages = @review.errors.map { |k, v| "#{k} #{v}" }
+      flash[:danger] = messages.join(', ').gsub!(/_/, ' ')
     end
-    messages = @item.errors.map { |k, v| "#{k} #{v}" }
-    flash[:danger] = messages.join(', ').gsub!(/_/, ' ')
-    redirect_to user_url(params => params[:user_id])
   end
 
   def show
@@ -22,6 +23,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:rating, :review)
+    params.permit(:rating, :review, :first_name, :last_name)
   end
 end
