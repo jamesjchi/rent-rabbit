@@ -274,13 +274,19 @@ h2{
   overflow: scroll;
   background-color: rgb(145, 145, 147);
 }
+.item-update,
 .item-new {
-  margin-top: 150px;
+  margin-top: 100px;
+  text-align: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  color:rgb(54,128,55);
+  font-size: 30px;
 }
-.item-update {
-  margin-top: 150px;
+.item-new p {
+	color: gray;
+	font-size: 18px;
 }
-
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
 	width: 60%;
@@ -314,11 +320,20 @@ a:hover{
 	background-color: darkgreen;
 	border: 1px solid darkgreen;
 }
+.btn.btn-danger{
+	width: 100%;
+	background-color: darkred;
+	border: 1px solid darkred;
+	margin-top: 10px;
+}
 .btn.btn-primary.oauthLogin{
 	width: 100%;
 	background-color: rgb(201,223,128);
 	border: 1px solid rgb(201,223,128);
 	margin-top: 10px;
+}
+#ui-datepicker-div{
+	z-index: 99 !important;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -100,14 +100,10 @@
             <div class="modal-body">
               <%= render 'reviews/form' %>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-warning close" data-dismiss="modal" aria-label="Close">Close</button>
-            </div>
           </div>
         </div>
       </div>
       <div class="well">
-        <p>Reviews </p>
         <% @reviews.each do |r| %>
           <% if r.reviewer_id === @user.id %>
           <h2><%= r.review %></h2>
