@@ -84,8 +84,14 @@
             %>
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
-              <%= link_to "Edit Item", item_path(i) %>
+              <% if i.rented == false %>
+                <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
+              <% else %>
+                <p>Not Currently Available</p>
+              <% end %>
+              <% if @current_user.id === @user.id %>
+                <%= link_to "Edit Item", item_path(i) %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -110,14 +116,22 @@
             <div class="modal-body">
               <%= render 'reviews/form' %>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning close" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <div class="well reviewWell">
       <% if @reviews.distinct.count('review') === 0 %>
             <h4>This user doesn't have any reviews yet. You could be the first!</h4>
             <% else %>
+=======
+      <div class="well">
+        <p>Reviews </p>
+>>>>>>> 16ff000110282a69c59aa59503e6bde7dd54a960
         <% @reviews.each do |r| %>
 
           <% if r.reviewer_id === @user.id %>
