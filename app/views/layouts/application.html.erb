@@ -26,18 +26,18 @@
   </div>
   <div class="col-md-2 col-md-offset-5">
   <a class="navbar-brand brand hidden-xs hidden-sm" href="/">
-  <img alt="Brand" src="/assets/Rent-Rabbit-Logo-words.svg">
+  <img alt="Brand" class="logoImg" src="/assets/Rent-Rabbit-Logo-words.svg">
   </a>
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right col-sm-6 col-md-5">
         <li class="col-md-4 hidden-sm"><a href="/items">For rent</a></li>
-        <form class="navbar-form navbar-right col-sm-12 col-md-8 hidden-xs" role="search">
+<%= form_tag(items_path, :method => 'get', id: "search-form", :class => "navbar-form navbar-right col-sm-12 col-md-8 hidden-xs") do  %>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Items">
-        </div>
-        <button type="submit" class="btn btn-success nav-btn">Submit</button>
-      </form>
+         <%= text_field_tag :search, params[:search], placeholder: "Search Items", :class => "form-control" %>
+         </div>
+         <%= submit_tag 'Submit', :class => "btn btn-success nav-btn" %>
+         <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-left col-sm-6 col-md-5">
     <% if @current_user %>
@@ -89,8 +89,8 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<%= javascript_include_tag 'skrollr.js' %>
 <%= javascript_include_tag '_main.js' %>
+<%= javascript_include_tag 'skrollr.js' %>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </body>
 
