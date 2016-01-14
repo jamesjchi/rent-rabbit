@@ -172,11 +172,12 @@ h2{
   top      : 30px;
 }
 .eachItem {
+  width   : 90%;
   margin  : -15px;
   padding : -10px;
 }
 .itemDescripDiv {
-  width            : 95%;
+  width            : 90%;
   font-family      : 'Lobster Two', cursive;
   position         : relative;
   top              : -75px;
