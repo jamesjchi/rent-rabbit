@@ -145,6 +145,12 @@ h2{
 	font-size: 40px;
 	color:rgb(54,128,55);
 }
+.forRoomTop {
+  height : 85px;
+}
+.forRoomBottom {
+  height : 85px;
+}
 .modal-body {
   text-align : center;
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -259,7 +265,7 @@ h2{
   text-align: center;
   overflow: scroll;
   float: right;
-  max-height: 350px; 
+  max-height: 350px;
 }
 .wellWell {
   width            : 100%;
