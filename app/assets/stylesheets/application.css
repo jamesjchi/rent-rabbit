@@ -260,7 +260,11 @@ h2{
 .item-update {
   margin-top: 150px;
 }
-
+.well-item {
+  height: 380px;
+  width: 377px;
+  overflow: scroll;
+}
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
 	width: 60%;

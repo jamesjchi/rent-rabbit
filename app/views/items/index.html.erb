@@ -6,7 +6,7 @@
       <section class="row">
       <% @items.each do |t| %>
      
-        <div class="well col-xs-4 col-md-4">
+        <div class="well well-item col-xs-4 col-md-4">
           <strong>Title:</strong> <%= t.title %><br>
           <%= cl_image_tag(t.image,
                           :width => 340,
