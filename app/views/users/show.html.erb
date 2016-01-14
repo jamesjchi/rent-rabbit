@@ -115,7 +115,8 @@
             <% end %>
             <% if r.last_name %>
               <%= r.last_name.first %>.
-            <% end %></small></h3>
+            <% end %> ON : <%= r.created_at.strftime("%m/%d/%Y") %></small></h3>
+
           <hr>
           <% end %>
 
