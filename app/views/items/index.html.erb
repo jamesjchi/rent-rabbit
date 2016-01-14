@@ -5,8 +5,8 @@
     <div class="container item-main">
       <section class="row">
       <% @items.each do |t| %>
-     
-        <div class="well well-item col-xs-4 col-md-4">
+        <% if t.rented == false %>
+        <div class="well well-item col-xs-2 col-md-4">
           <strong>Title:</strong> <%= t.title %><br>
           <%= cl_image_tag(t.image,
                           :width => 340,
@@ -25,15 +25,13 @@
           <%= link_to "Want to Rent This Item?", user_path(t.user_id) %><br>
           
         </div> 
-      
+        <% end %>
       <% end %> 
       </section>
     </div>
   </div>
 
-
-
 <% else %>
-  <p>There are currently no items for rent that match "<%= params[:search] %>".</p>
+  <div class="well well-error">There are currently no items for rent that match "<%= params[:search] %>".</div>
 <% end %>
 

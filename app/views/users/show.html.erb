@@ -17,7 +17,7 @@
       <hr>
       <div class="bio"><h2><%= @user.bio %></h2></div>
       <hr>
-      <div class="rating hidden-xs"><h2>&#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</h2></div>
+      <div class="rating hidden-xs"><%= @average %></div>
       <hr>
       <div class="col-xs-12 col-sm-12 col-md-12">
       <% if @current_user.id === @user.id %>
@@ -72,7 +72,11 @@
             %>
             <div class="itemDescripDiv">
               <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
-              <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
+              <% if i.rented == false || nil %>
+                <%= link_to "Contact About Renting", class: "btn btn-success btn-sm modalBtn" %><br>
+              <% else %>
+                <p>Not Currently Available</p>
+              <% end %>
               <%= link_to "Edit Item", item_path(i) %>
             </div>
           </div>

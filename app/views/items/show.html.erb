@@ -3,8 +3,8 @@
   <%= bootstrap_form_for @item do |t| %>
     <%= t.text_field :title %>
     <%= t.text_area :description %>
-    <%= t.text_field :price_day %>
-    <%= t.text_field :price_week %>
+    <%= t.text_field :price_day, prepend: "$", append: ".00" %>
+    <%= t.text_field :price_week, prepend: "$", append: ".00" %>
     <%= t.text_field :start_date %>
     <%= t.text_field :end_date %>
     <%= t.file_field :image %>

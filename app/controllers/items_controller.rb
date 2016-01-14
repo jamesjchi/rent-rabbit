@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :is_authenticated?
-
+  
   def index
     @items = Item.all
     if params[:search]
@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     end
     if @item.save
       flash[:success] = "Item Created"
+      
       redirect_to @current_user
     else
       messages = @item.errors.map { |k, v| "#{k} #{v}" }

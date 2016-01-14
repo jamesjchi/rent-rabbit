@@ -275,6 +275,12 @@ h2{
   width: 377px;
   overflow: scroll;
 }
+.well-error {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 20px;
+}
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
 	width: 60%;

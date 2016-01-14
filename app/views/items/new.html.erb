@@ -9,6 +9,8 @@
     <%= t.text_field :start_date, placeholder: "Start Date", hide_label: true %>
     <%= t.text_field :end_date, placeholder: "End Date", hide_label: true %>
     <%= t.file_field :image %>
+    <%= t.hidden_field :rented, :value => false %>
     <%= t.primary %>
+
   <% end %>
 </div>
