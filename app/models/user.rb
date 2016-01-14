@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :item, dependent: :destroy
-  has_and_belongs_to_many :reviews
+  has_and_belongs_to_many :reviews, dependent: :destroy
 
   validates :email,
         email: true,

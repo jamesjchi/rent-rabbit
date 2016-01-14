@@ -153,8 +153,7 @@ h2{
   position         : relative;
 }
 .updateModalBtn {
-  position : relative;
-  left     : 35%;
+  float : right;
 }
 .profileImg {
   height   : 150px;
@@ -189,6 +188,10 @@ h2{
   color       : rgb(242, 235, 237);
   font-family : 'Lobster Two', cursive;
   font-size   : 11px;
+}
+.userItemSpan {
+  position : relative;
+  right    : 25%;
 }
 .userWell {
   border-radius    : 15px;
