@@ -1,23 +1,32 @@
 <div class="container userContainer">
-  <section class="row">
+  <section class="container-fluid" style="height:50px">
   </section>
   <section class="row">
-    <div class="col-xs-3 well userWell">
+
+  <!--*** Begining of User info ****-->
+    <div class="col-xs-12 col-sm-3 col-md-3 well userWell">
       <div class="row">
       <%= cl_image_tag(@user.image,
                           :class   => 'profileImg col-xs-6 col-sm-6 col-md-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3',
-                          :radius  => 'max',
                           :crop    => :fill,
                           :gravity => :face
                       )
       %>
       </div>
       <hr>
-      <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From <%=@user.location %></small></h1></div>
+      <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From</small> <small style="color:rgb(54,128,55)"><%=@user.location %></small></h1></div>
       <hr>
       <div class="bio"><h2><%= @user.bio %></h2></div>
       <hr>
-      <div class="rating hidden-xs"><%= @average %></div>
+      <div class="rating hidden-xs">
+                  <% if @ratingTotal != nil %>
+
+                  <h2>Average Rating: <%= @ratingTotal / @reviews.distinct.count('rating') %></h2>
+                  <% else %>
+                  <h2>No ratings for this user yet</h2>
+                  <% end %>
+         <!--  <h2> &#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</h2> -->
+      </div>
       <hr>
       <div class="col-xs-12 col-sm-12 col-md-12">
       <% if @current_user.id === @user.id %>
@@ -59,15 +68,18 @@
       </div>
     </div>
 
-    <div class="col-xs-10 col-md-9 userItems">
-      <section class="row">
+<!--**** Beginning of item and review container ****-->
+  <div class="container">
+    <div class="col-xs-12 col-sm-9 col-md-9 userItems">
+      
         <% @item.each do |i| %>
-          <div class="col-xs-5 userItems">
+          <div class="col-xs-6 col-sm-6 col-md-4 userItems">
             <%= cl_image_tag(i.image,
-                          :height  => 150,
-                          :width   => 350,
+                          :height  => 250,
+                          :width   => 250,
                           :crop    => :fill,
-                          :gravity => :face
+                          :gravity => :face,
+                          :class   => "cloudImg"
                       )
             %>
             <div class="itemDescripDiv">
@@ -84,15 +96,14 @@
             </div>
           </div>
         <% end %>
-      </section>
-
     </div>
-  </section>
-  <section class="row text-center">
-    <div class="col-xs-8 col-xs-offset-2 reviewDiv">
-      <div class="well wellWell"><h1>Reviews</h1>
+
+    <div class="col-xs-9 col-sm-9 col-md-9 reviewDiv">
+      <div class="well wellWell container"><h1>Reviews about <%= @user.first_name %></h1>
         <% if @current_user.id != @user.id %>
-          <button type="button" class="btn nav-btn modalBtn" data-toggle="modal" data-target="#reviewModal">Review User</button>
+          <button type="button" class="btn nav-btn modalBtn active" data-toggle="modal" data-target="#reviewModal">Review <%= @user.first_name %></button>
+          <% else %>
+          <button type="button" class="btn nav-btn modalBtn disabled" data-toggle="modal" data-target="#reviewModal">Review <%= @user.first_name %></button>
         <% end %>
       </div>
 
@@ -112,24 +123,42 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+
+      <div class="well reviewWell">
+      <% if @reviews.distinct.count('review') === 0 %>
+            <h4>This user doesn't have any reviews yet. You could be the first!</h4>
+            <% else %>
+=======
       <div class="well">
         <p>Reviews </p>
+>>>>>>> 16ff000110282a69c59aa59503e6bde7dd54a960
         <% @reviews.each do |r| %>
+
           <% if r.reviewer_id === @user.id %>
+
+            
           <h2><%= r.review %></h2>
           <h3> Rating of : <%= r.rating %>/5
+            
             <% if r.first_name %>
-              <small>By : <%= r.first_name %>
+              <small>Written by : <%= r.first_name %>
             <% end %>
+            
             <% if r.last_name %>
               <%= r.last_name.first %>.
-            <% end %> ON : <%= r.created_at.strftime("%m/%d/%Y") %></small></h3>
-
-          <hr>
+            <% end %> on : <%= r.created_at.strftime("%m/%d/%Y") %></small></h3>
+            <hr>
+            
+            
           <% end %>
 
         <% end %>
+        <% end %>
       </div>
     </div>
+  </div>
+
+
   </section>
 </div>
