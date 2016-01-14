@@ -55,8 +55,8 @@ class UsersController < ApplicationController
     @reviews.each do |s|
       if s.reviewer_id === @user.id
       ratingScore.push(s.rating)
+      end
     end
-  end
     @ratingTotal = ratingScore.inject(:+)
   end
 

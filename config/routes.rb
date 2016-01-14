@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :items
   root 'main#index'
-  
+
+  get 'main/about'
+
 end
