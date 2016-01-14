@@ -160,6 +160,7 @@ h2{
 }
 .profileImg {
   height   : 150px;
+  border-radius: 100px
 }
 .bikeIcon {
   height  : 200px;
@@ -202,7 +203,7 @@ h2{
   border-radius    : 15px;
   border           : 2px solid rgb(54,128,55);
   background-color : rgb(200,200,200);
-  margin-top       : 35px;
+  max-height: 100%;
 }
 .imageInput{
 	width: 100%;
@@ -231,17 +232,23 @@ h2{
   margin : 5px;
   width  : 100%;
 }
+.bio h2 {
+  font-size: 18px;
+  font-weight: 200;
+  color: gray;
+  line-height: 26px;
+}
 .rating {
-  height : 50px;
+  height : 30px;
   margin : 5px;
   width  : 100%;
 }
 .rating h2 {
   position  : relative;
-  top       : 10px;
-  left      : 5px;
+  text-align: center;
   color     : gold;
   font-size : 22px;
+  line-height: 30px
 }
 .reviewDiv {
   border        : 2px solid rgb(54,128,55);
@@ -251,12 +258,24 @@ h2{
   letter-spacing: 1px;
   text-align: center;
   overflow: scroll;
+  float: right;
+  max-height: 350px; 
 }
 .wellWell {
   width            : 100%;
   background-color : rgb(200,200,200);
   border           : transparent !important;
-  margin           : 5px 0 10px 0;
+  margin           : 5px 0 5px 0;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 100px;
+}
+.wellWell h1{
+	margin-top: -10px;
+}
+.reviewWell{
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 #profileModalLabel {
   text-align : center;
@@ -265,7 +284,6 @@ h2{
 #profileModal {
   font-family : 'Russo One', sans-serif;
 }
-
 .item-main {
   margin-top: 150px;
   border: 3px solid black;
@@ -274,7 +292,6 @@ h2{
   overflow: scroll;
   background-color: rgb(145, 145, 147);
 }
-.item-update,
 .item-new {
   margin-top: 100px;
   text-align: center;
@@ -286,6 +303,21 @@ h2{
 .item-new p {
 	color: gray;
 	font-size: 18px;
+}
+
+.well-item {
+  height: 380px;
+  width: 377px;
+  overflow: scroll;
+}
+.well-error {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 20px;
+}
+.item-description {
+  width: 350px;
 }
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
@@ -334,6 +366,9 @@ a:hover{
 }
 #ui-datepicker-div{
 	z-index: 99 !important;
+}
+.cloudImg{
+	border: 1px solid red;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
