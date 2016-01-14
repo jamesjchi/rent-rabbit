@@ -39,6 +39,8 @@ gem 'cloudinary'
 gem 'omniauth'
 # Use OmniAuth for Facebook Login
 gem 'omniauth-facebook'
+#Use jquery with turbokinks
+gem 'jquery-turbolinks'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

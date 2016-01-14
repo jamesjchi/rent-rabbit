@@ -1,24 +1,22 @@
 .navbar-brand{
     position: absolute;
     width: 100%;
-    text-align: center;
     margin: auto;
 }
 .brand {
     position: absolute;
     display: block;
     margin-top: -10px;
-    left: 4px;
+}
+.logoImg{
+	position: absolute;
+	right:0;
 }
 .navbar{
 	background-color: rgba(255,255,255,0.9);
 	height: 80px;
 }
-.navbar-left li a {
- line-height: 55px;
- font-size: 18px;
- text-align: center;
-}
+.navbar-left li a,
 .navbar-right li a {
  line-height: 55px;
  font-size: 18px;
@@ -33,6 +31,7 @@ ul.nav a:hover {
 .nav-btn{
 	background-color: darkgreen;
 	border: 1px solid darkgreen;
+	color: white;
 }
 .hsContainer {
     display: table;
@@ -67,6 +66,9 @@ ul.nav a:hover {
     height: 210px;
     text-align: center
 }
+#slide-2 h2{
+	display: none;
+}
 .front{
 	margin-top: 10%;
 	padding-top: 2%;
@@ -99,6 +101,7 @@ hr{
 	color:rgb(54,128,55);
 }
 .plaxEl {
+	display: none;
     position: absolute;
     bottom: 40%; right: 16%;
 	text-align: center;
@@ -144,24 +147,19 @@ h2{
 }
 .modal-body {
   text-align : center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  color:rgb(54,128,55);
+  font-size: 30px;
 }
 .userContainer {
   height           : 100%;
   width            : 100%;
-  background-color : rgb(90, 92, 91);
   padding          : 75px;
   position         : relative;
 }
-.updateModalBtn {
-  position : relative;
-  left     : 35%;
-}
 .profileImg {
   height   : 150px;
-  width    : 150px;
-  border   : transparent !important;
-  position : relative;
-  left     : 25%;
 }
 .bikeIcon {
   height  : 200px;
@@ -182,7 +180,7 @@ h2{
   position         : relative;
   top              : -75px;
   left             : 7px;
-  background-color : rgb(27, 28, 31);
+  background-color : rgb(200,200,200);
   opacity          : 0.5;
 }
 .itemDescripDiv h2 {
@@ -192,13 +190,23 @@ h2{
 }
 .userWell {
   border-radius    : 15px;
-  border           : 2px solid black;
-  background-color : rgb(145, 145, 147);
+  border           : 2px solid rgb(54,128,55);
+  background-color : rgb(200,200,200);
   margin-top       : 35px;
-  font-family      : 'Fredoka One', cursive;
+}
+.imageInput{
+	width: 100%;
+	font-size: 20px;
+	line-height: 0px;
+	height: 40px;
+	text-align: center;
 }
 .userWell h1 {
-  font-size : 20px;
+  font-size : 30px;
+  color: rgb(54,128,55);
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
 }
 .userWell h2 {
   font-size : 20px;
@@ -222,19 +230,21 @@ h2{
   position  : relative;
   top       : 10px;
   left      : 5px;
-  color     : rgb(240, 174, 47);
+  color     : gold;
   font-size : 22px;
 }
 .reviewDiv {
-  border        : 2px solid black;
+  border        : 2px solid rgb(54,128,55);
   border-radius : 15px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: rgb(54,128,55);
+  letter-spacing: 1px;
+  text-align: center;
   overflow: scroll;
-  font-family   : 'Black Ops One', cursive;
-
 }
 .wellWell {
   width            : 100%;
-  background-color : rgb(145, 145, 147);
+  background-color : rgb(200,200,200);
   border           : transparent !important;
   margin           : 5px 0 10px 0;
 }
@@ -282,7 +292,28 @@ h2{
 .navbar-collapse.collapse.in a:hover{
 	background-color: rgba(201,223,128,0.5);
 }
-
+a:hover{
+	text-decoration: none;
+	color: green;
+}
+.modal-title{
+	text-align: center;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing: 1px;
+	font-size: 40px;
+	color:rgb(54,128,55);
+}
+.btn.btn-primary{
+	width: 100%;
+	background-color: darkgreen;
+	border: 1px solid darkgreen;
+}
+.btn.btn-primary.oauthLogin{
+	width: 100%;
+	background-color: rgb(201,223,128);
+	border: 1px solid rgb(201,223,128);
+	margin-top: 10px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
