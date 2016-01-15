@@ -106,13 +106,14 @@
                       )
             %>
             <div class="itemDescripDiv">
-              <h2><%= i.title %></h2><hr><br>
+              <h2><%= i.title %></h2>
+                <% if i.rented == false %>
+                                <a href="mailto:<%= @user.email %>?subject=Rent <%= i.title %>", class: "btn btn-success btn-sm modalBtn">Contact About Renting</a> <br>
+                              <% else %>
+                                <p>Not Currently Available</p>
+                              <% end %>
+                  <hr><br>
               <p>$<%= i.price_day %>/day | $<%= i.price_week %>/week <br> <%= i.description %></p> 
-              <% if i.rented == false %>
-                <a href="mailto:<%= @user.email %>?subject=Rent <%= i.title %>", class: "btn btn-success btn-sm modalBtn">Contact About Renting</a> <br>
-              <% else %>
-                <p>Not Currently Available</p>
-              <% end %>
               <% if @current_user.id === @user.id %>
                 <%= link_to "Edit Item", item_path(i) %>
               <% end %>
