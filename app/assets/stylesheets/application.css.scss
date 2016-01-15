@@ -158,6 +158,12 @@ h2{
   padding          : 75px;
   position         : relative;
 }
+.forRoomTop {
+  height : 85px;
+}
+.forRoomBottom {
+  height : 85px;
+}
 .profileImg {
   height   : 150px;
   border-radius: 100px
@@ -262,7 +268,7 @@ h2{
   text-align: center;
   overflow: scroll;
   float: right;
-  max-height: 350px; 
+  max-height: 350px;
 }
 .wellWell {
   width            : 100%;
