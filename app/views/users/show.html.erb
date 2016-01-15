@@ -1,24 +1,24 @@
-<div class="container userContainer">
-  <section class="container-fluid" style="height:50px">
-  </section>
-  <section class="row">
+<div class="container-fluid userContainer">
 
-  <!--*** Begining of User info ****-->
-    <div class="col-xs-12 col-sm-3 col-md-3 well userWell">
-      <div class="row">
-      <%= cl_image_tag(@user.image,
-                          :class   => 'profileImg col-xs-6 col-sm-6 col-md-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3',
-                          :crop    => :fill,
-                          :gravity => :face
-                      )
-      %>
-      </div>
-      <hr>
-      <div class="about"><h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From</small> <small style="color:rgb(54,128,55)"><%=@user.location %></small></h1></div>
-      <hr>
+  <section class="container-fluid" style="height:50px"></section>
+  
+<!--*** Begining of User info div ****-->
+
+<div class="col-xs-12 col-sm-4 col-md-3 well userWell">
+	<div class="row">
+		<%= cl_image_tag(@user.image,
+		                :class   => 'profileImg col-xs-4 col-sm-6 col-md-6 col-xs-offset-4 col-sm-offset-3 col-md-offset-3',
+		                :crop    => :fill,
+		                :gravity => :face) %>
+    </div>
+    <hr>
+	<div class="about">
+		<h1><%= @user.first_name %> <%= @user.last_name.first %>.<br><small>Member Since <%= @user.created_at.strftime("%m/%Y") %><br>From</small> <small style="color:rgb(54,128,55)"><%=@user.location %></small></h1>
+	</div>
+	<hr>
       <div class="bio"><h2><%= @user.bio %></h2></div>
-      <hr>
-      <div class="rating hidden-xs">
+    <hr>
+    <div class="rating hidden-xs">
                   <% if @ratingTotal != nil %>
                   <h2><% @average_rating.floor.times do |i| %>
                   <i class="fa fa-star"></i>
@@ -44,17 +44,18 @@
                   <% else %>
                   <h2>No ratings for this user yet</h2>
                   <% end %>
-         <!--  <h2> &#9733;&#9733;&#9733;&#9733;&#9734; Two Reviews</h2> -->
-      </div>
-      <hr>
-      <div class="col-xs-12 col-sm-12 col-md-12">
+    </div>
+    <hr>
+<!-- ***** profile buttons ***** -->    
+    <div class="col-xs-12 col-sm-12 col-md-12">
       <% if @current_user.id === @user.id %>
-      <button type="button" class="btn nav-btn updateModalBtn col-xs-5 col-sm-5 col-md-5" data-toggle="modal" data-target="#profileModal">Edit Info</button>
-      <div class="col-xs-2 col-sm-2 col-md-2"></div>
-      <span><%= link_to "List Item", new_item_path, class: "btn nav-btn modalBtn col-xs-5 col-sm-5 col-md-5" %></span>
-      </div>
+      		<button type="button" class="btn nav-btn updateModalBtn col-xs-5 col-sm-5 col-md-5" data-toggle="modal" data-target="#profileModal">Edit Info</button>
+      			<div class="col-xs-2 col-sm-2 col-md-2"></div>
+      		<span><%= link_to "List Item", new_item_path, class: "btn nav-btn modalBtn col-xs-5 col-sm-5 col-md-5" %></span>
       <% end %>
-      <div class="modal fade" id="profileModal" tableindex="-1" rolde="dialog" aria-labelledby="profileModalLabel">
+    </div>
+<!-- ***** Prolile edit Modal ***** -->
+<div class="modal fade" id="profileModal" tableindex="-1" role="dialog" aria-labelledby="profileModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -83,23 +84,30 @@
         </div>
       </div>
     </div>
+<div class="col-sm-1 col-md-1 hidden-xs"></div>
+<!--**** Beginning of item container ****-->
+	<% if @item.length > 0 %>
+	<div class="col-xs-12 col-sm-7 col-md-8 itemsDiv"> 
+		<div class="col-xs-12 col-sm-12 col-md-12 innerItemDiv">
+		<h2 style="text-align:center"><%= @user.first_name %>'s Items for rent: </h2><hr>
 
 <!--**** Beginning of item and review container ****-->
-  <div class="container">
+<!--   <div class="container">
     <div class="col-xs-12 col-sm-9 col-md-9 userItems">
-
+ -->
         <% @item.each do |i| %>
-          <div class="col-xs-6 col-sm-6 col-md-4 userItems">
+          <div class="col-xs-6 col-sm-6 col-md-4">
             <%= cl_image_tag(i.image,
                           :height  => 250,
-                          :width   => 250,
+                          :width   => 200,
                           :crop    => :fill,
                           :gravity => :face,
                           :class   => "cloudImg"
                       )
             %>
             <div class="itemDescripDiv">
-              <h2>$<%= i.price_day %>/day | $<%= i.price_week %>/week | <%= i.title %><br><%= i.description %></h2>
+              <h2><%= i.title %></h2><hr><br>
+              <p>$<%= i.price_day %>/day | $<%= i.price_week %>/week <br> <%= i.description %></p> 
               <% if i.rented == false %>
                 <a href="mailto:<%= @user.email %>?subject=Rent <%= i.title %>", class: "btn btn-success btn-sm modalBtn">Contact About Renting</a> <br>
               <% else %>
@@ -111,19 +119,23 @@
 
             </div>
           </div>
-        <% end %>
+    <% end %>
     </div>
+</div>
+<% end %>
 
-    <div class="col-xs-9 col-sm-9 col-md-9 reviewDiv">
-      <div class="well wellWell container"><h1>Reviews about <%= @user.first_name %></h1>
+<!--******** Begining of reviews container ********-->
+
+<div class="col-xs-12 col-sm-7 col-md-8 reviewDiv">
+	<div class="well wellWell container"><h1>Reviews about <%= @user.first_name %></h1>
         <% if @current_user.id != @user.id %>
-          <button type="button" class="btn nav-btn modalBtn active" data-toggle="modal" data-target="#reviewModal">Review <%= @user.first_name %></button>
+          <button type="button" class="btn nav-btn modalBtn" data-toggle="modal" data-target="#reviewModal">Review <%= @user.first_name %></button>
           <% else %>
           <button type="button" class="btn nav-btn modalBtn disabled" data-toggle="modal" data-target="#reviewModal">Review <%= @user.first_name %></button>
         <% end %>
-      </div>
-
-      <div class="modal fade" id="reviewModal" tableindex="-1" rolde="dialog" aria-labelledby="reviewModalLabel">
+    </div>
+<!--********** Review Modal ***********-->
+    <div class="modal fade" id="reviewModal" tableindex="-1" rolde="dialog" aria-labelledby="reviewModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -140,6 +152,27 @@
         </div>
       </div>
 
+<!--************** Reviews Show section *************-->
+	<div class="well reviewWell">
+	   <% if @reviews.distinct.count('review') === 0 %>
+	        <h4>This user doesn't have any reviews yet. You could be the first!</h4>
+	   <% else %>
+	        <% @reviews.each do |r| %>
+	          	<% if r.reviewer_id === @user.id %>
+	          		<h2><%= r.review %></h2>
+	          		<h3> Rating of : <%= r.rating %>/5           
+	            <% if r.first_name %>
+	              	<small>Written by : <%= r.first_name %>
+	            <% end %>           
+	            <% if r.last_name %>
+	              	<%= r.last_name.first %>.
+	            <% end %> on : <%= r.created_at.strftime("%m/%d/%Y") %></small></h3>
+	            <hr>    
+	         	<% end %>
+	        <% end %>
+	    <% end %>
+	</div>
+<!-- 
       <div class="well reviewWell">
       <% if @reviews.distinct.count('review') === 0 %>
             <h4>This user doesn't have any reviews yet. You could be the first!</h4>
@@ -168,9 +201,9 @@
         <% end %>
         <% end %>
       </div>
-    </div>
+    </div> -->
   </div>
 
 
-  </section>
 </div>
+	
