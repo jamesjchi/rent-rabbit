@@ -1,8 +1,14 @@
-<h1>Sessions#new</h1>
+<section class="row newPassword">
+</section>
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+		<h2>Sessions#new</h2>
 
-<%= bootstrap_form_for :user, url: login_path do |f| %>
-	<%= f.email_field :email %>
-	<%= f.password_field :password %>
+		<%= bootstrap_form_for :user, url: login_path do |f| %>
+			<%= f.email_field :email %>
+			<%= f.password_field :password %>
 
-	<%= f.primary 'Login' %>
-<% end %>
+			<%= f.primary 'Login' %>
+		<% end %>
+	</div>
+</div>
