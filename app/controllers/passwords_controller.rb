@@ -4,14 +4,14 @@ class PasswordsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:user][:email])
-    # if verify_recaptcha
+    if verify_recaptcha
       @user.set_password_reset if @user
       UserMailer.password_reset(@user, request.host_with_port).deliver
       flash[:warning] = "Password Reset Sent"
       redirect_to root_path
-    # else
-    #   redirect_to newpassword_path
-    # end
+    else
+      redirect_to newpassword_path
+    end
   end
 
   def create_new
@@ -31,7 +31,7 @@ class PasswordsController < ApplicationController
   def update
     if (params[:user][:password] === params[:user][:password_confirmation])
       user = User.find_by_id(params[:user][:id])
-      if !user.nil?
+      if verify_recaptcha && !user.nil?
         user.password = params[:user][:password]
         user.save
         session[:user_id] = user.id
@@ -46,4 +46,3 @@ class PasswordsController < ApplicationController
     end
   end
 end
-# verify_recaptcha &&

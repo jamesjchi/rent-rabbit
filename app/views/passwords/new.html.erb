@@ -6,7 +6,7 @@
 
     <%= bootstrap_form_for :user do |f| %>
     <%= f.text_field :email, placeholder: "Enter your email", icon: "user", hide_label: true %>
-    <!-- recaptcha_tags  -->
+    <%= recaptcha_tags %>
     <%= f.submit "Send reset email", :class=> "btn btn-primary" %>
     <% end %>
   </div>

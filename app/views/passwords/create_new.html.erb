@@ -8,7 +8,7 @@
       <%= f.hidden_field :id, :value => @user.id %>
       <%= f.password_field :password, :placeholder => "New Password", hide_label: true %>
       <%= f.password_field :password_confirmation, :placeholder => "Confirm new password", hide_label: true %>
-      <!-- recaptcha_tags  -->
+      <%= recaptcha_tags %>
       <%= f.submit "Reset Password", :class=> "btn btn-primary" %>
     <% end %>
   </div>
