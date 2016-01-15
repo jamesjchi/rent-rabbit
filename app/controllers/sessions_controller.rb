@@ -32,6 +32,6 @@ class SessionsController < ApplicationController
   private
   # list user params variable
   def user_params
-  	params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :date_created, :avg_rating, :bio)
+  	params.require(:user).permit(:first_name, :last_name, :email, :password, :image, :location, :date_created, :avg_rating, :bio, :provider)
   end
 end
