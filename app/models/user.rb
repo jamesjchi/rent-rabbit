@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   	User.find_by_email(email).try(:authenticate, password)
   end
 
+  def avg_rating person
+    user_reviews = Review.select {|r| r.reviewer_id === person.id}
+    puts user_reviews
+  end
 end
