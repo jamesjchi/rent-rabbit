@@ -7,20 +7,22 @@ class SessionsController < ApplicationController
   	@user = User.authenticate user_params[:email], user_params[:password]
 
   	# If valid create new session with @user.id
-    if !@user.provider
-    	if @user
-    		session[:user_id] = @user.id
-        flash[:success] = "Welcome Back " + @user.first_name
-    		redirect_to root_path
-    	# If not send back to login
-    	else
-    		flash[:danger] = "Invalid User Login"
-    		redirect_to root_path
-    	end
-    else
-      flash[:danger] = "Please click facebook login"
-      redirect_to root_path
-    end
+
+      	if @user
+          if !@user.provider
+        		session[:user_id] = @user.id
+            flash[:success] = "Welcome Back " + @user.first_name
+        		redirect_to root_path
+      	    # If not send back to login
+          else
+            flash[:danger] = "Please click facebook login"
+            redirect_to root_path
+          end
+      	else
+      		flash[:danger] = "Invalid User Login"
+      		redirect_to root_path
+      	end
+
   end
   # Logout end session
   def destroy
