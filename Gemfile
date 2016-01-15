@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Use rails_12factor for heroku functionality
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -26,13 +27,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+# Use bootstrap_form for pretty bootstrap styled forms
 gem 'bootstrap_form'
 
 # Use pry with <% binding pry %> inline the html to debug on rails
 gem 'pry'
-
+# User email_validator to validate email
 gem 'email_validator'
+
+gem 'mail'
+
+gem "recaptcha", require: "recaptcha/rails"
 
 # Use Cloudinary for file uploads
 gem 'cloudinary'
@@ -60,4 +65,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Use Letter Opener to preview emails sent by the server.
+  gem 'letter_opener'
 end

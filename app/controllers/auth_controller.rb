@@ -12,6 +12,7 @@ class AuthController < ApplicationController
     end
 
     session[:user_id] = @user.id
+    flash[:success] = "Successful #{@user.provider} login"
     redirect_to root_path
   end
 

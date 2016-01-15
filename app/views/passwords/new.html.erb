@@ -1,0 +1,13 @@
+<section class="row resetPassword">
+</section>
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Reset Password</h2>
+
+    <%= bootstrap_form_for :user do |f| %>
+    <%= f.text_field :email, placeholder: "Enter your email", icon: "user", hide_label: true %>
+    <%= recaptcha_tags %>
+    <%= f.submit "Send reset email", :class=> "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
